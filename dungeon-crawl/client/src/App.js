@@ -11,6 +11,7 @@ import Register from './components/auth/Register';
 import Login from './components/auth/Login';
 import PrivateRoute from './components/private-route/PrivateRoute';
 import Dashboard from './components/dashboard/Dashboard';
+import CharacterGen from './components/dashboard/CharacterGen'
 
 if (localStorage.jwtToken) {
   const token = localStorage.jwtToken;
@@ -31,10 +32,12 @@ class App extends Component {
         <Router>
           <div className="App">
             <h1>Dungeon Crawl</h1>
-            <Route exact path="/" component={Login}/>
+            <Route exact path="/" component={Landing}/>
+            <Route exact path="/login" component={Login}/>
             <Route exact path="/register" component={Register}/>
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard}/>
+              <PrivateRoute exact path="/character-gen" component={CharacterGen}/>
             </Switch>
           </div>
         </Router>

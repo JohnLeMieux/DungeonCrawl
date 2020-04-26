@@ -16,6 +16,7 @@ class Dashboard extends Component {
             <div style={{ height: "75vh" }} className="container valign-wrapper">
                 <div className="row">
                     <div className="col s12 center-align">
+                        <a href="/character-gen">Create character</a>
                         <h4>
                             <b>Hey there,</b> {user.username.split(' ')[0]}
                             <p className="flow-text grey-text text-darken-1">
