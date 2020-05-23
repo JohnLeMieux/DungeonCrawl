@@ -14,40 +14,66 @@ class CharacterGen extends Component {
         };
     };
 
-    checkClass() {
-        let result = [], 
-            strength = this.state.strength, 
-            intelligence = this.state.intelligence, 
-            wisdom = this.state.wisdom,
-            dexterity = this.state.dexterity,
-            constitution = this.state.constitution,
-            charisma = this.state.charisma;
-        if (strength >= 9 && wisdom >= 5 && dexterity >= 5 && constitution >= 7 && charisma >= 5)
-            result.push("Fighter");
-        if (intelligence >= 9 && wisdom >= 5 && dexterity >= 6 && constitution >= 5 && charisma >= 5)
-            result.push("Mage");
-        if (strength >= 5 && intelligence >= 5 && wisdom >= 9 && constitution >= 5 && charisma >= 5)
-            result.push("Cleric");
-        if (strength >= 5 && intelligence >= 5 && dexterity >= 9 && constitution >= 5 && charisma >= 5)
-            result.push("Thief");
+    checkRaceAndClass() {
+        let result = [];
+        while (result.length === 0) {
+            if (this.isFighter())
+                result.push("Human Fighter");
+            if (this.isMage()) 
+                result.push("Human Mage");
+            if (this.isCleric())
+                result.push("Human Cleric");
+            if (this.isThief())
+                result.push("Human Thief");
+            if (this.isElf())
+                result.push("Elf Fighter/Mage");
+            if (this.isDwarf() && this.isFighter())
+                result.push("Dwarf Fighter");
+            if (this.isDwarf() && this.isThief())
+                result.push("Dwarf Thief");
+            if (this.isHalfling() && this.isFighter())
+                result.push("Halfling Fighter");
+            if (this.isHalfling() && this.isThief())
+                result.push("Halfling Thief");
+            if (result.length == 0)
+                this.setState({
+                    strength: rollDice(3, 6, 0),
+                    intelligence: rollDice(3, 6, 0),
+                    wisdom: rollDice(3, 6, 0),
+                    dexterity: rollDice(3, 6, 0),
+                    constitution: rollDice(3, 6, 0),
+                    charisma: rollDice(3, 6, 0)
+                });
+        }
         return result;
     }
 
-    checkRace() {
-        let result = ["Human"], 
-            strength = this.state.strength, 
-            intelligence = this.state.intelligence, 
-            wisdom = this.state.wisdom,
-            dexterity = this.state.dexterity,
-            constitution = this.state.constitution,
-            charisma = this.state.charisma;
-        if (strength >= 8 && dexterity <= 17 && constitution >= 12 && charisma <= 16)
-            result.push("Dwarf");
-        if (intelligence >= 8 && dexterity >= 7 && constitution >= 6 && charisma >= 8)
-            result.push("Elf");
-        if (strength >= 6 && strength <= 17 && intelligence >= 6 && wisdom <= 17 && dexterity >= 8 && constitution >= 10)
-            result.push("Halfling");
-        return result;
+    isFighter() {
+        return this.state.strength >= 9 && this.state.wisdom > 5 && this.state.dexterity > 5 && this.state.constitution >= 7 && this.state.charisma > 5;
+    }
+
+    isMage() {
+        return this.state.intelligence >= 9 && this.state.wisdom > 5 && this.state.dexterity >= 6 && this.state.constitution > 5 && this.state.charisma > 5;
+    }
+
+    isCleric() {
+        return this.state.strength > 5 && this.state.intelligence > 5 && this.state.wisdom >= 9 && this.state.constitution > 5 && this.state.charisma > 5;
+    }
+
+    isThief() {
+        return this.state.strength > 5 && this.state.intelligence > 5 && this.state.dexterity >= 9 && this.state.constitution > 5 && this.state.charisma > 5;
+    }
+
+    isElf() {
+        return this.isFighter() && this.isMage() && this.state.dexterity >= 7 && this.state.charisma >= 8;
+    }
+
+    isDwarf() {
+        return this.state.strength >= 8 && this.state.dexterity <= 17 && this.state.constitution >= 12 && this.state.charisma <= 16;
+    }
+
+    isHalfling() {
+        return this.state.strength >= 6 && this.state.strength <= 17 && this.state.intelligence >= 6 && this.state.wisdom <= 17 && this.state.dexterity >= 8 && this.state.constitution >= 10;
     }
 
     render() {
@@ -69,17 +95,10 @@ class CharacterGen extends Component {
                 <input type="text" id="con" value={this.state.constitution} disabled/><br/>
                 <label htmlFor="cha">Charisma</label>
                 <input type="text" id="cha" value={this.state.charisma} disabled/><br/>
-                {this.checkClass().map((cl) => (
+                {this.checkRaceAndClass().map((rc) => (
                     <span>
-                        <label htmlFor={cl}>{cl}</label>
-                        <input type="radio" id={cl} key={cl} name="characterClass" value={cl}/>
-                    </span>
-                ))}
-                <br/>
-                {this.checkRace().map((race) => (
-                    <span>
-                        <label htmlFor={race}>{race}</label>
-                        <input type="radio" id={race} key={race} name="race" value={race}/>
+                        <label htmlFor={rc}>{rc}</label>
+                        <input type="radio" id={rc} key={rc} name="raceAndClass" value={rc}/><br/>
                     </span>
                 ))}
             </form>
