@@ -24,7 +24,7 @@ export enum Class {
 
 interface Spell { }
 
-enum Language {
+export enum Language {
   COMMON,
   CHAOTIC_EVIL,
   CHAOTIC_GOOD,
@@ -67,7 +67,7 @@ export interface CharacterType {
   sex: "male" | "female";
   race: Race;
   age?: number;
-  class: Class | Class[];
+  class: Class;
   level: number;
   strength: number;
   exceptional_strength?: number;
@@ -92,7 +92,7 @@ export interface MonsterType {
   hit_dice: {
     dice: number;
     sides: number;
-    bonus: number;
+    bonus?: number;
   };
   experience: number;
   hit_points: number;

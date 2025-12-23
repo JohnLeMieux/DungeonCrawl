@@ -1,4 +1,4 @@
-import { Armor, Class, Race } from "./types";
+import { Armor, Class/*, Race*/ } from "./types";
 
 export const armor_class = [
   {
@@ -1977,7 +1977,8 @@ export const combat = [
         ]
       }
     ]
-  }, {
+  },
+  /*{
     class: [Race.HALFLING, Race.HUMAN],
     to_hit: [
       {
@@ -2170,7 +2171,7 @@ export const combat = [
         ]
       }
     ]
-  },
+  },*/
   {
     class: [Class.FIGHTER, Class.PALADIN, Class.RANGER, Class.BARD],
     to_hit: [

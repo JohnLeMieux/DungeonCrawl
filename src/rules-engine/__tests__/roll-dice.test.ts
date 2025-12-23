@@ -36,4 +36,14 @@ describe("rollDice()", () => {
     expect(result).toBeGreaterThanOrEqual(3);
     expect(result).toBeLessThanOrEqual(18);
   });
+  it("rolls 1d6+1", () => {
+    const result = rollDice(1, 6, 1);
+    expect(result).toBeGreaterThanOrEqual(2);
+    expect(result).toBeLessThanOrEqual(7);
+  });
+  it("rolls 2d6-1", () => {
+    const result = rollDice(2, 6, -1);
+    expect(result).toBeGreaterThanOrEqual(1);
+    expect(result).toBeLessThanOrEqual(11);
+  });
 })
