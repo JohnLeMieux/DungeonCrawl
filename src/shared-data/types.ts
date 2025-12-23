@@ -67,7 +67,8 @@ export interface CharacterType {
   sex: "male" | "female";
   race: Race;
   age?: number;
-  class: Class;
+  // TODO melee support for multiclass or classless human/halfling
+  class: Class/* | Class[] | undefined*/;
   level: number;
   strength: number;
   exceptional_strength?: number;
@@ -83,6 +84,8 @@ export interface CharacterType {
   alignment?: Alignment;
   money?: number;
   equipment: Equipment[];
+  // TODO derive armor class from equipment
+  armor_class?: number;
 };
 
 export interface MonsterType {

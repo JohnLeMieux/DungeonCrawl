@@ -1,4 +1,4 @@
-import { characterHit } from "../melee";
+import { characterHit, monsterHit } from "../melee";
 import { CharacterType, Class, Language, MonsterType, Race } from "../../shared-data/types";
 
 describe("characterHit()", () => {
@@ -77,5 +77,54 @@ describe("characterHit()", () => {
     character.level = 21;
     monster.armor_class = 10;
     expect(characterHit(character, monster)).toBe(true);
+  });
+});
+
+describe("monsterHit()", () => {
+  const character: CharacterType = {
+    name: "Test Character",
+    sex: "male",
+    race: Race.HUMAN,
+    class: Class.FIGHTER,
+    level: 1,
+    strength: 9,
+    intelligence: 9,
+    wisdom: 9,
+    dexterity: 9,
+    constitution: 9,
+    charisma: 9,
+    experience: 0,
+    hit_points: 4,
+    languages: [Language.COMMON],
+    equipment: [],
+    armor_class: 10
+  };
+
+  const monster: MonsterType = {
+    name: "Test Monster",
+    armor_class: -6,
+    hit_dice: {
+      dice: 10,
+      sides: 8
+    },
+    experience: 13,
+    hit_points: 8,
+    number_of_attacks: 1,
+    damage: {
+      dice: 1,
+      sides: 6,
+    },
+    movement: 10,
+    save: []
+  };
+
+  it("high hit dice monster hits high ac character", () => {
+    expect(monsterHit(monster, character)).toBe(true);
+  });
+
+  it("low hit dice monster misses low ac character", () => {
+    monster.hit_dice = { dice: 1, sides: 8, bonus: -2 };
+    character.armor_class = -5;
+    expect(monsterHit(monster, character)).toBe(false);
   });
 });
