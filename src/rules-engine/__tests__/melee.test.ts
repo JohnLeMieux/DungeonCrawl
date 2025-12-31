@@ -127,4 +127,22 @@ describe("monsterHit()", () => {
     character.armor_class = -5;
     expect(monsterHit(monster, character)).toBe(false);
   });
+
+  it("1 hit die misses low ac character", () => {
+    monster.hit_dice = { dice: 1, sides: 8 };
+    character.armor_class = -7;
+    expect(monsterHit(monster, character)).toBe(false);
+  });
+
+  it("1-1 hit die misses low ac character", () => {
+    monster.hit_dice = { dice: 1, sides: 8, bonus: -1 };
+    character.armor_class = -6;
+    expect(monsterHit(monster, character)).toBe(false);
+  });
+
+  it("1+1 hit die misses low ac character", () => {
+    monster.hit_dice = { dice: 1, sides: 8, bonus: 1 };
+    character.armor_class = -8;
+    expect(monsterHit(monster, character)).toBe(false);
+  });
 });

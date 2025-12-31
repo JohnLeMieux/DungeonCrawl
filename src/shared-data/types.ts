@@ -85,7 +85,8 @@ export interface CharacterType {
   money?: number;
   equipment: Equipment[];
   // TODO derive armor class from equipment
-  armor_class?: number;
+  // hardcode for now
+  armor_class: number;
 };
 
 export interface MonsterType {
