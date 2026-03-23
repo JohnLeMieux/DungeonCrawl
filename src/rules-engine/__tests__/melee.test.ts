@@ -17,7 +17,7 @@ describe("characterHit()", () => {
     experience: 0,
     hit_points: 4,
     languages: [Language.COMMON],
-    equipment: []
+    inventory: []
   };
 
   const monster: MonsterType = {
@@ -35,7 +35,8 @@ describe("characterHit()", () => {
       sides: 6,
     },
     movement: 10,
-    save: []
+    save: [],
+    size: "M"
   };
 
   it("low level cleric misses low ac monster", () => {
@@ -96,8 +97,7 @@ describe("monsterHit()", () => {
     experience: 0,
     hit_points: 4,
     languages: [Language.COMMON],
-    equipment: [],
-    armor_class: 10
+    inventory: []
   };
 
   const monster: MonsterType = {
@@ -115,7 +115,8 @@ describe("monsterHit()", () => {
       sides: 6,
     },
     movement: 10,
-    save: []
+    save: [],
+    size: "M"
   };
 
   it("high hit dice monster hits high ac character", () => {

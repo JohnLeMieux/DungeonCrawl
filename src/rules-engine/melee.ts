@@ -1,5 +1,6 @@
 import { combat, monsterCombat } from "../shared-data/combat-tables";
 import { CharacterType, MonsterType } from "../shared-data/types";
+import { deriveArmorClass } from "./character-utils";
 import { rollDice } from "./utils";
 
 /**
@@ -28,7 +29,8 @@ export const characterHit = (character: CharacterType, monster: MonsterType) => 
  * @returns true if the monster hit the character, false if not
  */
 export const monsterHit = (monster: MonsterType, character: CharacterType) => {
-  const charAc = character.armor_class;
+  // TODO remove hardcoded ac when no longer necessary for testing
+  const charAc = character.armor_class ?? deriveArmorClass(character);
   const record = monsterCombat.find(item => item.ac === charAc);
   let toHit;
   if (monster.hit_dice.dice === 1) {

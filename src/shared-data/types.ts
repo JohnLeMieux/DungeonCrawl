@@ -1,4 +1,6 @@
-export enum Race {
+export type Maybe<T> = T | null;
+
+export const enum Race {
   DWARF,
   ELF,
   GNOME,
@@ -8,7 +10,7 @@ export enum Race {
   HUMAN
 }
 
-export enum Class {
+export const enum Class {
   CLERIC,
   DRUID,
   FIGHTER,
@@ -24,7 +26,7 @@ export enum Class {
 
 interface Spell { }
 
-export enum Language {
+export const enum Language {
   COMMON,
   CHAOTIC_EVIL,
   CHAOTIC_GOOD,
@@ -48,7 +50,7 @@ export enum Language {
   ORCISH
 }
 
-enum Alignment {
+const enum Alignment {
   CHAOTIC_EVIL,
   CHAOTIC_GOOD,
   CHAOTIC_NEUTRAL,
@@ -60,10 +62,27 @@ enum Alignment {
   NEUTRAL_GOOD
 }
 
-interface Equipment {}
-
-export interface CharacterType {
+export interface Item { 
   name: string;
+  category: string;
+  value: number;
+  weight: number;
+}
+
+export interface Armor extends Item {
+  armor_type: ArmorType;
+};
+
+export interface Weapon extends Item {
+  effect: unknown;
+};
+
+export interface Combatant {
+  name: string;
+  hit_points: number;
+};
+
+export interface CharacterType extends Combatant {
   sex: "male" | "female";
   race: Race;
   age?: number;
@@ -78,19 +97,21 @@ export interface CharacterType {
   constitution: number;
   charisma: number;
   experience?: number;
-  hit_points: number;
   spells?: Spell[];
   languages: Language[];
   alignment?: Alignment;
   money?: number;
-  equipment: Equipment[];
+  inventory: Item[];
   // TODO derive armor class from equipment
-  // hardcode for now
-  armor_class: number;
+  // hardcode for now for the purposes of testing
+  armor_class?: number;
+  equipped_armor?: Maybe<Armor>;
+  equipped_shield?: boolean;
+  // TODO define Weapon type
+  equipped_weapon?: Maybe<Weapon>;
 };
 
-export interface MonsterType {
-  name: string;
+export interface MonsterType extends Combatant {
   special_to_hit?: string;
   armor_class: number;
   hit_dice: {
@@ -99,7 +120,6 @@ export interface MonsterType {
     bonus?: number;
   };
   experience: number;
-  hit_points: number;
   number_of_attacks: number;
   damage: string | {
     dice: number;
@@ -108,9 +128,10 @@ export interface MonsterType {
   movement: number;
   save: Class[];
   morale?: number;
+  size: "S" | "M" | "L";
 }
 
-export enum Armor {
+export enum ArmorType {
   NONE,
   LEATHER,
   PADDED,
