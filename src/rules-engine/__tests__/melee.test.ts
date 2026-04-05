@@ -15,21 +15,21 @@ describe("characterHit()", () => {
     constitution: 9,
     charisma: 9,
     experience: 0,
-    hit_points: 4,
+    hitPoints: 4,
     languages: [Language.COMMON],
     inventory: []
   };
 
   const monster: MonsterType = {
     name: "Test Monster",
-    armor_class: -6,
-    hit_dice: {
+    armorClass: -6,
+    hitDice: {
       dice: 1,
       sides: 8
     },
     experience: 13,
-    hit_points: 8,
-    number_of_attacks: 1,
+    hitPoints: 8,
+    numberOfAttacks: 1,
     damage: {
       dice: 1,
       sides: 6,
@@ -45,27 +45,27 @@ describe("characterHit()", () => {
 
   it("high level cleric hits high ac monster", () => {
     character.level = 16;
-    monster.armor_class = 10;
+    monster.armorClass = 10;
     expect(characterHit(character, monster)).toBe(true);
   });
 
   it("low level fighter misses low ac monster", () => {
     character.class = Class.FIGHTER;
     character.level = 1;
-    monster.armor_class = -6;
+    monster.armorClass = -6;
     expect(characterHit(character, monster)).toBe(false);
   });
 
   it("high level fighter hits high ac monster", () => {
     character.level = 11;
-    monster.armor_class = 10;
+    monster.armorClass = 10;
     expect(characterHit(character, monster)).toBe(true);
   });
 
   it("low level mage misses low ac monster", () => {
     character.class = Class.MAGICUSER;
     character.level = 1;
-    monster.armor_class = -5;
+    monster.armorClass = -5;
     expect(characterHit(character, monster)).toBe(false);
   });
 
@@ -76,7 +76,7 @@ describe("characterHit()", () => {
 
   it("high level thief hits high ac monster", () => {
     character.level = 21;
-    monster.armor_class = 10;
+    monster.armorClass = 10;
     expect(characterHit(character, monster)).toBe(true);
   });
 });
@@ -95,21 +95,21 @@ describe("monsterHit()", () => {
     constitution: 9,
     charisma: 9,
     experience: 0,
-    hit_points: 4,
+    hitPoints: 4,
     languages: [Language.COMMON],
     inventory: []
   };
 
   const monster: MonsterType = {
     name: "Test Monster",
-    armor_class: -6,
-    hit_dice: {
+    armorClass: -6,
+    hitDice: {
       dice: 10,
       sides: 8
     },
     experience: 13,
-    hit_points: 8,
-    number_of_attacks: 1,
+    hitPoints: 8,
+    numberOfAttacks: 1,
     damage: {
       dice: 1,
       sides: 6,
@@ -124,26 +124,26 @@ describe("monsterHit()", () => {
   });
 
   it("low hit dice monster misses low ac character", () => {
-    monster.hit_dice = { dice: 1, sides: 8, bonus: -2 };
-    character.armor_class = -5;
+    monster.hitDice = { dice: 1, sides: 8, bonus: -2 };
+    character.armorClass = -5;
     expect(monsterHit(monster, character)).toBe(false);
   });
 
   it("1 hit die misses low ac character", () => {
-    monster.hit_dice = { dice: 1, sides: 8 };
-    character.armor_class = -7;
+    monster.hitDice = { dice: 1, sides: 8 };
+    character.armorClass = -7;
     expect(monsterHit(monster, character)).toBe(false);
   });
 
   it("1-1 hit die misses low ac character", () => {
-    monster.hit_dice = { dice: 1, sides: 8, bonus: -1 };
-    character.armor_class = -6;
+    monster.hitDice = { dice: 1, sides: 8, bonus: -1 };
+    character.armorClass = -6;
     expect(monsterHit(monster, character)).toBe(false);
   });
 
   it("1+1 hit die misses low ac character", () => {
-    monster.hit_dice = { dice: 1, sides: 8, bonus: 1 };
-    character.armor_class = -8;
+    monster.hitDice = { dice: 1, sides: 8, bonus: 1 };
+    character.armorClass = -8;
     expect(monsterHit(monster, character)).toBe(false);
   });
 });

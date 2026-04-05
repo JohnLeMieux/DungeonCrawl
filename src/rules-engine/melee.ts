@@ -1,7 +1,11 @@
 import { combat, monsterCombat } from "../shared-data/combat-tables";
-import { CharacterType, MonsterType } from "../shared-data/types";
+import { CharacterType, Combatant, MonsterType } from "../shared-data/types";
 import { deriveArmorClass } from "./character-utils";
 import { rollDice } from "./utils";
+
+const isCharacter = (combatant: Combatant): combatant is CharacterType => {
+  return "level" in combatant;
+};
 
 /**
  * Determines whether a character hits its target
@@ -12,11 +16,11 @@ import { rollDice } from "./utils";
  */
 export const characterHit = (character: CharacterType, monster: MonsterType) => {
   const table = combat.find(item => item.class.includes(character.class));
-  const monsterAc = table?.to_hit.find(item => item.ac === monster.armor_class);
-  const toHit = monsterAc?.to_hit.find(item => item.level === character.level)?.to_hit;
+  const monsterAc = table?.toHit.find(item => item.ac === monster.armorClass);
+  const toHit = monsterAc?.toHit.find(item => item.level === character.level)?.toHit;
   /* istanbul ignore next */
   if (toHit == null) {
-    throw new Error(`Could not find ${character.level} level ${character.class} to hit ${monster.armor_class} AC monster`);
+    throw new Error(`Could not find ${character.level} level ${character.class} to hit ${monster.armorClass} AC monster`);
   }
   return rollDice(1, 20) >= toHit;
 };
@@ -30,25 +34,25 @@ export const characterHit = (character: CharacterType, monster: MonsterType) => 
  */
 export const monsterHit = (monster: MonsterType, character: CharacterType) => {
   // TODO remove hardcoded ac when no longer necessary for testing
-  const charAc = character.armor_class ?? deriveArmorClass(character);
+  const charAc = character.armorClass ?? deriveArmorClass(character);
   const record = monsterCombat.find(item => item.ac === charAc);
   let toHit;
-  if (monster.hit_dice.dice === 1) {
-    if (!monster.hit_dice.bonus) {
-      toHit = record?.hit_dice.find(item => item.dice === 1 && item.bonus === undefined)?.to_hit;
-    } else if (monster.hit_dice.bonus < -1) {
-      toHit = record?.hit_dice.find(item => item.bonus === -2)?.to_hit;
-    } else if (monster.hit_dice.bonus === -1) {
-      toHit = record?.hit_dice.find(item => item.bonus === -1)?.to_hit;
+  if (monster.hitDice.dice === 1) {
+    if (!monster.hitDice.bonus) {
+      toHit = record?.hitDice.find(item => item.dice === 1 && item.bonus === undefined)?.toHit;
+    } else if (monster.hitDice.bonus < -1) {
+      toHit = record?.hitDice.find(item => item.bonus === -2)?.toHit;
+    } else if (monster.hitDice.bonus === -1) {
+      toHit = record?.hitDice.find(item => item.bonus === -1)?.toHit;
     } else {
-      toHit = record?.hit_dice.find(item => item.bonus === 1)?.to_hit;
+      toHit = record?.hitDice.find(item => item.bonus === 1)?.toHit;
     }
   } else {
-    toHit = record?.hit_dice.find(item => item.dice === monster.hit_dice.dice)?.to_hit;
+    toHit = record?.hitDice.find(item => item.dice === monster.hitDice.dice)?.toHit;
   }
   /* istanbul ignore next */
   if (toHit == null) {
-    throw new Error(`Could not find ${monster.hit_dice.dice} monster hit dice to hit ${charAc} AC character`);
+    throw new Error(`Could not find ${monster.hitDice.dice} monster hit dice to hit ${charAc} AC character`);
   }
   return rollDice(1, 20) >= toHit;
 };

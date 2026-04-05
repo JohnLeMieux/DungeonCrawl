@@ -1,11 +1,17 @@
 // TODO rename this file to something more appropriate
 import { ArmorType, CharacterType } from "../shared-data/types";
 
+/**
+ * Derive Armor Class for a character based on equipped armor and shield
+ * 
+ * @param character 
+ * @returns Armor Class 
+ */
 export const deriveArmorClass = (character: CharacterType) => { 
   //TODO include dex bonus when attribute tables are available
   const bonus = 0;
   let ac = 10;
-  switch (character.equipped_armor?.armor_type) {
+  switch (character.equippedArmor?.armorType) {
     case ArmorType.LEATHER:
     case ArmorType.PADDED:
       ac = 8;
@@ -30,7 +36,7 @@ export const deriveArmorClass = (character: CharacterType) => {
     default:
       ac = 10;
   }
-  if (character.equipped_shield) {
+  if (character.equippedShield) {
     ac--;
   }
   return ac + bonus;

@@ -70,7 +70,7 @@ export interface Item {
 }
 
 export interface Armor extends Item {
-  armor_type: ArmorType;
+  armorType: ArmorType;
 };
 
 export interface Weapon extends Item {
@@ -79,7 +79,7 @@ export interface Weapon extends Item {
 
 export interface Combatant {
   name: string;
-  hit_points: number;
+  hitPoints: number;
 };
 
 export interface CharacterType extends Combatant {
@@ -90,7 +90,7 @@ export interface CharacterType extends Combatant {
   class: Class/* | Class[] | undefined*/;
   level: number;
   strength: number;
-  exceptional_strength?: number;
+  exceptionalStrength?: number;
   intelligence: number;
   wisdom: number;
   dexterity: number;
@@ -104,23 +104,23 @@ export interface CharacterType extends Combatant {
   inventory: Item[];
   // TODO derive armor class from equipment
   // hardcode for now for the purposes of testing
-  armor_class?: number;
-  equipped_armor?: Maybe<Armor>;
-  equipped_shield?: boolean;
+  armorClass?: number;
+  equippedArmor?: Maybe<Armor>;
+  equippedShield?: boolean;
   // TODO define Weapon type
-  equipped_weapon?: Maybe<Weapon>;
+  equippedWeapon?: Maybe<Weapon>;
 };
 
 export interface MonsterType extends Combatant {
-  special_to_hit?: string;
-  armor_class: number;
-  hit_dice: {
+  specialToHit?: string;
+  armorClass: number;
+  hitDice: {
     dice: number;
     sides: number;
     bonus?: number;
   };
   experience: number;
-  number_of_attacks: number;
+  numberOfAttacks: number;
   damage: string | {
     dice: number;
     sides: number;
