@@ -1,5 +1,6 @@
-import { characterHit, monsterHit } from "../melee";
+import { resolveAttack, toCombatant } from "../melee";
 import { CharacterType, Class, Language, MonsterType, Race } from "../../shared-data/types";
+import { rollDice } from "../utils";
 
 describe("characterHit()", () => {
   const character: CharacterType = {
@@ -40,44 +41,51 @@ describe("characterHit()", () => {
   };
 
   it("low level cleric misses low ac monster", () => {
-    expect(characterHit(character, monster)).toBe(false);
+    const result = resolveAttack(toCombatant(character), toCombatant(monster), rollDice(1, 20));
+    expect(result.hit).toBe(false);
   });
 
   it("high level cleric hits high ac monster", () => {
     character.level = 16;
     monster.armorClass = 10;
-    expect(characterHit(character, monster)).toBe(true);
+    const result = resolveAttack(toCombatant(character), toCombatant(monster), rollDice(1, 20));
+    expect(result.hit).toBe(true);
   });
 
   it("low level fighter misses low ac monster", () => {
     character.class = Class.FIGHTER;
     character.level = 1;
     monster.armorClass = -6;
-    expect(characterHit(character, monster)).toBe(false);
+    const result = resolveAttack(toCombatant(character), toCombatant(monster), rollDice(1, 20));
+    expect(result.hit).toBe(false);
   });
 
   it("high level fighter hits high ac monster", () => {
     character.level = 11;
     monster.armorClass = 10;
-    expect(characterHit(character, monster)).toBe(true);
+    const result = resolveAttack(toCombatant(character), toCombatant(monster), rollDice(1, 20));
+    expect(result.hit).toBe(true);
   });
 
   it("low level mage misses low ac monster", () => {
     character.class = Class.MAGICUSER;
     character.level = 1;
     monster.armorClass = -5;
-    expect(characterHit(character, monster)).toBe(false);
+    const result = resolveAttack(toCombatant(character), toCombatant(monster), rollDice(1, 20));
+    expect(result.hit).toBe(false);
   });
 
   it("low level theif misses low ac monster", () => {
     character.class = Class.THIEF;
-    expect(characterHit(character, monster)).toBe(false);
+    const result = resolveAttack(toCombatant(character), toCombatant(monster), rollDice(1, 20));
+    expect(result.hit).toBe(false);
   });
 
   it("high level thief hits high ac monster", () => {
     character.level = 21;
     monster.armorClass = 10;
-    expect(characterHit(character, monster)).toBe(true);
+    const result = resolveAttack(toCombatant(character), toCombatant(monster), rollDice(1, 20));
+    expect(result.hit).toBe(true);
   });
 });
 
@@ -120,30 +128,35 @@ describe("monsterHit()", () => {
   };
 
   it("high hit dice monster hits high ac character", () => {
-    expect(monsterHit(monster, character)).toBe(true);
+    const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
+    expect(result.hit).toBe(true);
   });
 
   it("low hit dice monster misses low ac character", () => {
     monster.hitDice = { dice: 1, sides: 8, bonus: -2 };
     character.armorClass = -5;
-    expect(monsterHit(monster, character)).toBe(false);
+    const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
+    expect(result.hit).toBe(false);
   });
 
   it("1 hit die misses low ac character", () => {
     monster.hitDice = { dice: 1, sides: 8 };
     character.armorClass = -7;
-    expect(monsterHit(monster, character)).toBe(false);
+    const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
+    expect(result.hit).toBe(false);
   });
 
   it("1-1 hit die misses low ac character", () => {
     monster.hitDice = { dice: 1, sides: 8, bonus: -1 };
     character.armorClass = -6;
-    expect(monsterHit(monster, character)).toBe(false);
+    const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
+    expect(result.hit).toBe(false);
   });
 
   it("1+1 hit die misses low ac character", () => {
     monster.hitDice = { dice: 1, sides: 8, bonus: 1 };
     character.armorClass = -8;
-    expect(monsterHit(monster, character)).toBe(false);
+    const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
+    expect(result.hit).toBe(false);
   });
 });

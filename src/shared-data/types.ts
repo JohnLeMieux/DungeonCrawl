@@ -77,12 +77,30 @@ export interface Weapon extends Item {
   effect: unknown;
 };
 
-export interface Combatant {
-  name: string;
-  hitPoints: number;
+export interface HitDice {
+  dice: number;
+  sides: number;
+  bonus?: number;
 };
 
-export interface CharacterType extends Combatant {
+export type ToHitSource = {
+  type: "character";
+  class: Class;
+  level: number;
+} | {
+  type: "monster";
+  hitDice: HitDice;
+  special?: string;
+};
+
+export interface Combatant {
+  toHitSource: ToHitSource;
+  armorClass: number;
+};
+
+export interface CharacterType {
+  name: string;
+  hitPoints: number;
   sex: "male" | "female";
   race: Race;
   age?: number;
@@ -111,14 +129,12 @@ export interface CharacterType extends Combatant {
   equippedWeapon?: Maybe<Weapon>;
 };
 
-export interface MonsterType extends Combatant {
+export interface MonsterType {
+  name: string;
+  hitPoints: number;
   specialToHit?: string;
   armorClass: number;
-  hitDice: {
-    dice: number;
-    sides: number;
-    bonus?: number;
-  };
+  hitDice: HitDice;
   experience: number;
   numberOfAttacks: number;
   damage: string | {
