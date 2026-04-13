@@ -1,4 +1,4 @@
-export type Maybe<T> = T | null;
+import { Maybe } from "../utils";
 
 export const enum Race {
   DWARF,
@@ -62,11 +62,24 @@ const enum Alignment {
   NEUTRAL_GOOD
 }
 
-export interface Item { 
+export interface Item {
   name: string;
   category: string;
   value: number;
   weight: number;
+}
+
+export enum ArmorType {
+  NONE,
+  LEATHER,
+  PADDED,
+  STUDDED,
+  RING_MAIL,
+  SCALE_MAIL,
+  CHAIN_MAIL,
+  SPLINT,
+  BANDED_MAIL,
+  PLATE_MAIL
 }
 
 export interface Armor extends Item {
@@ -75,27 +88,6 @@ export interface Armor extends Item {
 
 export interface Weapon extends Item {
   effect: unknown;
-};
-
-export interface HitDice {
-  dice: number;
-  sides: number;
-  bonus?: number;
-};
-
-export type ToHitSource = {
-  type: "character";
-  class: Class;
-  level: number;
-} | {
-  type: "monster";
-  hitDice: HitDice;
-  special?: string;
-};
-
-export interface Combatant {
-  toHitSource: ToHitSource;
-  armorClass: number;
 };
 
 export interface CharacterType {
@@ -128,34 +120,3 @@ export interface CharacterType {
   // TODO define Weapon type
   equippedWeapon?: Maybe<Weapon>;
 };
-
-export interface MonsterType {
-  name: string;
-  hitPoints: number;
-  specialToHit?: string;
-  armorClass: number;
-  hitDice: HitDice;
-  experience: number;
-  numberOfAttacks: number;
-  damage: string | {
-    dice: number;
-    sides: number;
-  };
-  movement: number;
-  save: Class[];
-  morale?: number;
-  size: "S" | "M" | "L";
-}
-
-export enum ArmorType {
-  NONE,
-  LEATHER,
-  PADDED,
-  STUDDED,
-  RING_MAIL,
-  SCALE_MAIL,
-  CHAIN_MAIL,
-  SPLINT,
-  BANDED_MAIL,
-  PLATE_MAIL
-}

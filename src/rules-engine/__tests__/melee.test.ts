@@ -1,5 +1,8 @@
-import { resolveAttack, toCombatant } from "../melee";
-import { CharacterType, Class, Language, MonsterType, Race } from "../../shared-data/types";
+
+import { toCombatant } from "../adapters/to-combatant";
+import { CharacterType, Class, Language, Race } from "../character/character-type";
+import { resolveAttack } from "../combat/resolve-attack";
+import { MonsterType } from "../monster/monster-type";
 import { rollDice } from "../utils";
 
 describe("characterHit()", () => {

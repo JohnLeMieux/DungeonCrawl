@@ -1,32 +1,7 @@
-import { combat, monsterCombat } from "../shared-data/combat-tables";
-import { CharacterType, Class, Combatant, HitDice, MonsterType, ToHitSource } from "../shared-data/types";
-import { deriveArmorClass } from "./character-utils";
-
- export const toCombatant = (combatant: CharacterType | MonsterType): Combatant => {
-  if ("level" in combatant) {
-    const ac = deriveArmorClass(combatant);
-    const level = combatant.level;
-    const characterClass = combatant.class;
-    return {
-      toHitSource: {
-        type: "character",
-        class: characterClass,
-        level: level
-      },
-      armorClass: ac
-    };
-  } else if ("hitDice" in combatant) {
-    const { armorClass, hitDice } = combatant;
-    return {
-      toHitSource: {
-        type: "monster",
-        hitDice
-      },
-      armorClass
-    };
-   }
-   throw new Error(`Unsupported argument type ${JSON.stringify(combatant)}`);
-};
+import { combat, monsterCombat } from "../../shared-data/combat-tables";
+import { Combatant, ToHitSource } from "../adapters/to-combatant";
+import { Class } from "../character/character-type";
+import { HitDice } from "../monster/monster-type";
 
 const lookupCharacterTable = (characterClass: Class, level: number, armorClass: number) => {
   const table = combat.find(item => item.class.includes(characterClass));

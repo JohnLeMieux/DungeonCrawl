@@ -1,6 +1,6 @@
 import exp from "constants";
 import { ArmorType, CharacterType, Class, Race } from "../../shared-data/types";
-import { deriveArmorClass } from "../character-utils";
+import { deriveArmorClass } from "../character/derive-armor-class";
 
 describe("deriveArmorClass()", () => {
   const character: CharacterType = {

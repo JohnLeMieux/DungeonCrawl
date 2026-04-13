@@ -1,5 +1,6 @@
 // TODO rename this file to something more appropriate
-import { ArmorType, CharacterType } from "../shared-data/types";
+
+import { ArmorType, CharacterType } from "./character-type";
 
 /**
  * Derive Armor Class for a character based on equipped armor and shield
