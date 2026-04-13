@@ -1,4 +1,4 @@
-import { rollDice } from "../utils";
+import { rollDice } from "../utils/dice/roll";
 
 describe("rollDice()", () => {
   it("rolls 1d4", () => {

@@ -1,5 +1,3 @@
-export type Maybe<T> = T | null;
-
 /**
  * Simulates rolling a number of multisided dice
  * 

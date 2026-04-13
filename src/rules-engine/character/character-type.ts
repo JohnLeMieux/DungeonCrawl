@@ -1,4 +1,4 @@
-import { Maybe } from "../utils";
+import { Maybe } from "../utils/dice/roll";
 
 export const enum Race {
   DWARF,
