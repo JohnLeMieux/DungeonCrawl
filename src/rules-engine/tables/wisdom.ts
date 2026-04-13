@@ -1,0 +1,52 @@
+export const wisdomTable = [
+  {
+    score: 3,
+    saveVsMagic: -3
+  }, {
+    score: 4,
+    saveVsMagic: -2
+  }, {
+    score: 5,
+    saveVsMagic: -1
+  }, {
+    score: 6,
+    saveVsMagic: -1
+  }, {
+    score: 7,
+    saveVsMagic: -1
+  }, {
+    score: 9,
+    spellFailure: 20
+  }, {
+    score: 10,
+    spellFailure: 15
+  }, {
+    score: 11,
+    spellFailure: 10
+  }, {
+    score: 12,
+    spellFailure: 5
+  }, {
+    score: 13,
+    additionalSpellLevel: 1
+  }, {
+    score: 14,
+    additionalSpellLevel: 1
+  }, {
+    score: 15,
+    saveVsMagic: 1,
+    additionalSpellLevel: 2
+  }, {
+    score: 16,
+    saveVsMagic: 2,
+    additionalSpellLevel: 2
+  }, {
+    score: 17,
+    saveVsMagic: 3,
+    additionalSpellLevel: 3
+  }, {
+    score: 18,
+    saveVsMagic: 4,
+    additionalSpellLevel: 4
+  }
+];
