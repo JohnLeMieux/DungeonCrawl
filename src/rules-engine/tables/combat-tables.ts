@@ -1,4 +1,4 @@
-import { ArmorType, Class/*, Race*/ } from "./types";
+import { ArmorType, Class } from "../character/character-type";
 
 export const armorClass = [
   {

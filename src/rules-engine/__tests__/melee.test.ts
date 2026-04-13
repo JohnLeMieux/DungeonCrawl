@@ -1,5 +1,5 @@
 
-import { toCombatant } from "../adapters/to-combatant";
+import { toCombatant } from "../combat/to-combatant";
 import { CharacterType, Class, Language, Race } from "../character/character-type";
 import { resolveAttack } from "../combat/resolve-attack";
 import { MonsterType } from "../monster/monster-type";

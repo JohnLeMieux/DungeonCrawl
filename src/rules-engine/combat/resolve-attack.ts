@@ -1,5 +1,5 @@
-import { combat, monsterCombat } from "../../shared-data/combat-tables";
-import { Combatant, ToHitSource } from "../adapters/to-combatant";
+import { combat, monsterCombat } from "../tables/combat-tables";
+import { Combatant, ToHitSource } from "./to-combatant";
 import { Class } from "../character/character-type";
 import { HitDice } from "../monster/monster-type";
 
