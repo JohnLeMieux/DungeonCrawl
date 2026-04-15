@@ -43,6 +43,7 @@ const getRequiredRoll = (source: ToHitSource, armorClass: number) => {
       return lookupCharacterTable(source.class, source.level, armorClass);
     case "monster":
       return lookupMonsterTable(source.hitDice, armorClass);
+    /* istanbul ignore next */
     default:
       return 0;
   }

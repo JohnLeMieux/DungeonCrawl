@@ -40,6 +40,7 @@ export interface Combatant {
       armorClass
     };
    }
+   /* istanbul ignore next */
    throw new Error(`Unsupported argument type ${JSON.stringify(combatant)}`);
 };
 
