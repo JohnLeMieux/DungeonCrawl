@@ -1,7 +1,7 @@
 // TODO rename this file to something more appropriate
 
 import { armorClass, dexterityTable } from "../tables";
-import { ArmorType, CharacterType } from "./character-type";
+import { CharacterType } from "./character-type";
 
 /**
  * Derive Armor Class for a character based on equipped armor and shield
