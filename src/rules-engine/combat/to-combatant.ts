@@ -28,7 +28,7 @@ export interface Combatant {
         class: characterClass,
         level: level
       },
-      armorClass: ac
+      armorClass: ac.armorClass
     };
   } else if ("hitDice" in combatant) {
     const { armorClass, hitDice } = combatant;

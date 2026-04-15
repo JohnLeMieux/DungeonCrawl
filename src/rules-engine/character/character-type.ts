@@ -1,4 +1,4 @@
-import { Maybe } from "../utils/dice/roll";
+import { Maybe } from "../utils/core/maybe";
 
 export const enum Race {
   DWARF,
@@ -84,6 +84,7 @@ export enum ArmorType {
 
 export interface Armor extends Item {
   armorType: ArmorType;
+  magicBonus: number;
 };
 
 export interface Weapon extends Item {

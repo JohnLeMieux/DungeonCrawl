@@ -1,5 +1,4 @@
-import exp from "constants";
-import { ArmorType, CharacterType, Class, Race } from "../../shared-data/types";
+import { ArmorType, CharacterType, Class, Race } from "../character/character-type";
 import { deriveArmorClass } from "../character/derive-armor-class";
 
 describe("deriveArmorClass()", () => {
@@ -21,13 +20,13 @@ describe("deriveArmorClass()", () => {
   };
 
   it("should return ac 10 for no armor", () => {
-    expect(deriveArmorClass(character)).toBe(10);
+    expect(deriveArmorClass(character).armorClass).toBe(10);
   });
 
   it("should return ac 9 for only shield", () => { 
     character.equippedShield = true;
 
-    expect(deriveArmorClass(character)).toBe(9);
+    expect(deriveArmorClass(character).armorClass).toBe(9);
 
     character.equippedShield = false;
   });
@@ -38,17 +37,18 @@ describe("deriveArmorClass()", () => {
       category: "Armor",
       value: 0,
       weight: 0,
-      armorType: ArmorType.LEATHER
+      armorType: ArmorType.LEATHER,
+      magicBonus: 0
     };
 
-    expect(deriveArmorClass(character)).toBe(8);
+    expect(deriveArmorClass(character).armorClass).toBe(8);
   });
 
   it("should return ac 7 for leather armor and shield", () => {
     character.equippedShield = true;
 
 
-    expect(deriveArmorClass(character)).toBe(7);
+    expect(deriveArmorClass(character).armorClass).toBe(7);
 
     character.equippedShield = false;
   });
@@ -59,16 +59,17 @@ describe("deriveArmorClass()", () => {
       category: "Armor",
       value: 0,
       weight: 0,
-      armorType: ArmorType.PADDED
+      armorType: ArmorType.PADDED,
+      magicBonus: 0
     };
 
-    expect(deriveArmorClass(character)).toBe(8);
+    expect(deriveArmorClass(character).armorClass).toBe(8);
   });
 
   it("should return ac 7 for padded armor and shield", () => {
     character.equippedShield = true;
 
-    expect(deriveArmorClass(character)).toBe(7);
+    expect(deriveArmorClass(character).armorClass).toBe(7);
 
     character.equippedShield = false;
   });
@@ -79,16 +80,17 @@ describe("deriveArmorClass()", () => {
       category: "Armor",
       value: 0,
       weight: 0,
-      armorType: ArmorType.STUDDED
+      armorType: ArmorType.STUDDED,
+      magicBonus: 0
     };
 
-    expect(deriveArmorClass(character)).toBe(7);
+    expect(deriveArmorClass(character).armorClass).toBe(7);
   });
 
   it("should return ac 6 for studded leather armor and shield", () => {
     character.equippedShield = true;
 
-    expect(deriveArmorClass(character)).toBe(6);
+    expect(deriveArmorClass(character).armorClass).toBe(6);
 
     character.equippedShield = false;
   });
@@ -99,16 +101,17 @@ describe("deriveArmorClass()", () => {
       category: "Armor",
       value: 0,
       weight: 0,
-      armorType: ArmorType.RING_MAIL
+      armorType: ArmorType.RING_MAIL,
+      magicBonus: 0
     };
 
-    expect(deriveArmorClass(character)).toBe(7);
+    expect(deriveArmorClass(character).armorClass).toBe(7);
   });
 
   it("should return ac 6 for ring mail and shield", () => {
     character.equippedShield = true;
 
-    expect(deriveArmorClass(character)).toBe(6);
+    expect(deriveArmorClass(character).armorClass).toBe(6);
 
     character.equippedShield = false;
   });
@@ -119,16 +122,17 @@ describe("deriveArmorClass()", () => {
       category: "Armor",
       value: 0,
       weight: 0,
-      armorType: ArmorType.SCALE_MAIL
+      armorType: ArmorType.SCALE_MAIL,
+      magicBonus: 0
     };
 
-    expect(deriveArmorClass(character)).toBe(6);
+    expect(deriveArmorClass(character).armorClass).toBe(6);
   });
 
   it("should return ac 5 for scale mail and shield", () => {
     character.equippedShield = true;
 
-    expect(deriveArmorClass(character)).toBe(5);
+    expect(deriveArmorClass(character).armorClass).toBe(5);
 
     character.equippedShield = false;
   });
@@ -139,16 +143,17 @@ describe("deriveArmorClass()", () => {
       category: "Armor",
       value: 0,
       weight: 0,
-      armorType: ArmorType.CHAIN_MAIL
+      armorType: ArmorType.CHAIN_MAIL,
+      magicBonus: 0
     };
 
-    expect(deriveArmorClass(character)).toBe(5);
+    expect(deriveArmorClass(character).armorClass).toBe(5);
   });
 
   it("should return ac 4 for chain mail and shield", () => {
     character.equippedShield = true;
 
-    expect(deriveArmorClass(character)).toBe(4);
+    expect(deriveArmorClass(character).armorClass).toBe(4);
 
     character.equippedShield = false;
   });
@@ -159,16 +164,17 @@ describe("deriveArmorClass()", () => {
       category: "Armor",
       value: 0,
       weight: 0,
-      armorType: ArmorType.SPLINT
+      armorType: ArmorType.SPLINT,
+      magicBonus: 0
     };
 
-    expect(deriveArmorClass(character)).toBe(4);
+    expect(deriveArmorClass(character).armorClass).toBe(4);
   });
 
   it("should return ac 3 for splint mail and shield", () => {
     character.equippedShield = true;
 
-    expect(deriveArmorClass(character)).toBe(3);
+    expect(deriveArmorClass(character).armorClass).toBe(3);
 
     character.equippedShield = false;
   });
@@ -179,16 +185,17 @@ describe("deriveArmorClass()", () => {
       category: "Armor",
       value: 0,
       weight: 0,
-      armorType: ArmorType.BANDED_MAIL
+      armorType: ArmorType.BANDED_MAIL,
+      magicBonus: 0
     };
 
-    expect(deriveArmorClass(character)).toBe(4);
+    expect(deriveArmorClass(character).armorClass).toBe(4);
   });
 
   it("should return ac 3 for banded mail and shield", () => {
     character.equippedShield = true;
 
-    expect(deriveArmorClass(character)).toBe(3);
+    expect(deriveArmorClass(character).armorClass).toBe(3);
 
     character.equippedShield = false;
   });
@@ -199,15 +206,16 @@ describe("deriveArmorClass()", () => {
       category: "Armor",
       value: 0,
       weight: 0,
-      armorType: ArmorType.PLATE_MAIL
+      armorType: ArmorType.PLATE_MAIL,
+      magicBonus: 0
     };
 
-    expect(deriveArmorClass(character)).toBe(3);
+    expect(deriveArmorClass(character).armorClass).toBe(3);
   });
 
   it("should return ac 2 for plate mail and shield", () => {
     character.equippedShield = true;
 
-    expect(deriveArmorClass(character)).toBe(2);
+    expect(deriveArmorClass(character).armorClass).toBe(2);
   });
 });

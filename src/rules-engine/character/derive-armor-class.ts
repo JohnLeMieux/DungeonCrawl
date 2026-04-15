@@ -1,5 +1,6 @@
 // TODO rename this file to something more appropriate
 
+import { armorClass, dexterityTable } from "../tables";
 import { ArmorType, CharacterType } from "./character-type";
 
 /**
@@ -10,35 +11,18 @@ import { ArmorType, CharacterType } from "./character-type";
  */
 export const deriveArmorClass = (character: CharacterType) => { 
   //TODO include dex bonus when attribute tables are available
-  const bonus = 0;
-  let ac = 10;
-  switch (character.equippedArmor?.armorType) {
-    case ArmorType.LEATHER:
-    case ArmorType.PADDED:
-      ac = 8;
-      break;
-    case ArmorType.STUDDED:
-    case ArmorType.RING_MAIL:
-      ac = 7;
-      break;
-    case ArmorType.SCALE_MAIL:
-      ac = 6;
-      break;
-    case ArmorType.CHAIN_MAIL:
-      ac = 5;
-      break;
-    case ArmorType.SPLINT:
-    case ArmorType.BANDED_MAIL:
-      ac = 4;
-      break;
-    case ArmorType.PLATE_MAIL:
-      ac = 3;
-      break;
-    default:
-      ac = 10;
-  }
-  if (character.equippedShield) {
-    ac--;
-  }
-  return ac + bonus;
+  const ac = armorClass.find(item => item.armor === character.equippedArmor?.armorType)?.ac ?? 10;
+  const shield = character.equippedShield ? -1 : 0;
+  const dexBonus = dexterityTable.find(item => item.score === character.dexterity)?.defense ?? 0;
+  const magicBonus = character.equippedArmor?.magicBonus ?? 0;
+  return {
+    armorClass: ac + shield + dexBonus - magicBonus,
+    breakdown: {
+      baseAC: 10,
+      armor: ac,
+      shield,
+      dexBonus,
+      magicBonus
+    }
+  };
 };

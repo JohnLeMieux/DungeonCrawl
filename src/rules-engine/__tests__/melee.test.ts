@@ -1,6 +1,6 @@
 
 import { toCombatant } from "../combat/to-combatant";
-import { CharacterType, Class, Language, Race } from "../character/character-type";
+import { ArmorType, CharacterType, Class, Language, Race } from "../character/character-type";
 import { resolveAttack } from "../combat/resolve-attack";
 import { MonsterType } from "../monster/monster-type";
 import { rollDice } from "../utils/dice/roll";
@@ -137,28 +137,64 @@ describe("monsterHit()", () => {
 
   it("low hit dice monster misses low ac character", () => {
     monster.hitDice = { dice: 1, sides: 8, bonus: -2 };
-    character.armorClass = -5;
+    character.dexterity = 18;
+    character.equippedArmor = {
+      name: "Plate Mail",
+      category: "armor",
+      value: 400,
+      weight: 400,
+      armorType: ArmorType.PLATE_MAIL,
+      magicBonus: +3
+    };
+    character.equippedShield = true;
     const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
     expect(result.hit).toBe(false);
   });
 
   it("1 hit die misses low ac character", () => {
     monster.hitDice = { dice: 1, sides: 8 };
-    character.armorClass = -7;
+    character.dexterity = 18;
+    character.equippedArmor = {
+      name: "Plate Mail",
+      category: "armor",
+      value: 400,
+      weight: 400,
+      armorType: ArmorType.PLATE_MAIL,
+      magicBonus: +5
+    };
+    character.equippedShield = true;
     const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
     expect(result.hit).toBe(false);
   });
 
   it("1-1 hit die misses low ac character", () => {
     monster.hitDice = { dice: 1, sides: 8, bonus: -1 };
-    character.armorClass = -6;
+    character.dexterity = 18;
+    character.equippedArmor = {
+      name: "Plate Mail",
+      category: "armor",
+      value: 400,
+      weight: 400,
+      armorType: ArmorType.PLATE_MAIL,
+      magicBonus: +4
+    };
+    character.equippedShield = true;
     const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
     expect(result.hit).toBe(false);
   });
 
   it("1+1 hit die misses low ac character", () => {
     monster.hitDice = { dice: 1, sides: 8, bonus: 1 };
-    character.armorClass = -8;
+    character.dexterity = 18;
+    character.equippedArmor = {
+      name: "Plate Mail",
+      category: "armor",
+      value: 400,
+      weight: 400,
+      armorType: ArmorType.PLATE_MAIL,
+      magicBonus: +6
+    };
+    character.equippedShield = true;
     const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
     expect(result.hit).toBe(false);
   });

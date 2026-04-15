@@ -3,102 +3,42 @@ import { ArmorType, Class } from "../character/character-type";
 export const armorClass = [
   {
     armor: ArmorType.PLATE_MAIL,
-    shield: true,
-    ac: 2
-  },
-  {
-    armor: ArmorType.PLATE_MAIL,
-    shield: false,
     ac: 3
   },
   {
     armor: ArmorType.SPLINT,
-    shield: true,
-    ac: 3
-  },
-  {
-    armor: ArmorType.BANDED_MAIL,
-    shield: true,
-    ac: 3
-  },
-  {
-    armor: ArmorType.SPLINT,
-    shield: false,
     ac: 4
   },
   {
     armor: ArmorType.BANDED_MAIL,
-    shield: false,
     ac: 4
   },
   {
     armor: ArmorType.CHAIN_MAIL,
-    shield: true,
-    ac: 4
-  },
-  {
-    armor: ArmorType.CHAIN_MAIL,
-    shield: false,
     ac: 5
   },
   {
     armor: ArmorType.SCALE_MAIL,
-    shield: true,
-    ac: 5
-  },
-  {
-    armor: ArmorType.SCALE_MAIL,
-    shield: false,
     ac: 6
   },
   {
     armor: ArmorType.STUDDED,
-    shield: true,
-    ac: 6
-  },
-  {
-    armor: ArmorType.RING_MAIL,
-    shield: true,
-    ac: 6
-  },
-  {
-    armor: ArmorType.STUDDED,
-    shield: false,
     ac: 7
   },
   {
     armor: ArmorType.RING_MAIL,
-    shield: false,
     ac: 7
   },
   {
     armor: ArmorType.LEATHER,
-    shield: true,
-    ac: 7
-  },
-  {
-    armor: ArmorType.PADDED,
-    shield: true,
-    ac: 7
-  },
-  {
-    armor: ArmorType.LEATHER,
-    shield: false,
     ac: 8
   },
   {
     armor: ArmorType.PADDED,
-    shield: false,
     ac: 8
   },
   {
     armor: ArmorType.NONE,
-    shield: true,
-    ac: 9
-  },
-  {
-    armor: ArmorType.NONE,
-    shield: false,
     ac: 10
   }
 ];
