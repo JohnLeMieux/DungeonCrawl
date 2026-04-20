@@ -90,6 +90,13 @@ describe("characterHit()", () => {
     const result = resolveAttack(toCombatant(character), toCombatant(monster), rollDice(1, 20));
     expect(result.hit).toBe(true);
   });
+
+  it("zero level human misses low ac monster", () => {
+    character.level = 0;
+    monster.armorClass = -5;
+    const result = resolveAttack(toCombatant(character), toCombatant(monster), rollDice(1, 20));
+    expect(result.hit).toBe(false);
+  });
 });
 
 describe("monsterHit()", () => {

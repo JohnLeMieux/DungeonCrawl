@@ -1,4 +1,4 @@
-import { CharacterType, Class } from "../character/character-type";
+import { CharacterType, Class, Race } from "../character/character-type";
 import { deriveArmorClass } from "../character/derive-armor-class";
 import { HitDice, MonsterType } from "../monster/monster-type";
 
@@ -10,6 +10,9 @@ export type ToHitSource = {
   type: "monster";
   hitDice: HitDice;
   special?: string;
+} | {
+  type: "zero-level",
+  race: Race
 };
 
 export interface Combatant {
@@ -17,11 +20,20 @@ export interface Combatant {
   armorClass: number;
 };
 
- export const toCombatant = (combatant: CharacterType | MonsterType): Combatant => {
-  if ("level" in combatant) {
-    const ac = deriveArmorClass(combatant);
-    const level = combatant.level;
-    const characterClass = combatant.class;
+ export const toCombatant = (entity: CharacterType | MonsterType): Combatant => {
+  if ("level" in entity) {
+    const ac = deriveArmorClass(entity);
+    if (entity.level === 0 && [Race.HUMAN, Race.HALFLING].includes(entity.race)) {
+      return {
+        toHitSource: {
+          type: "zero-level",
+          race: entity.race
+        },
+        armorClass: ac.armorClass
+      };
+    }
+    const level = entity.level;
+    const characterClass = entity.class;
     return {
       toHitSource: {
         type: "character",
@@ -30,8 +42,8 @@ export interface Combatant {
       },
       armorClass: ac.armorClass
     };
-  } else if ("hitDice" in combatant) {
-    const { armorClass, hitDice } = combatant;
+  } else if ("hitDice" in entity) {
+    const { armorClass, hitDice } = entity;
     return {
       toHitSource: {
         type: "monster",
@@ -41,7 +53,7 @@ export interface Combatant {
     };
    }
    /* istanbul ignore next */
-   throw new Error(`Unsupported argument type ${JSON.stringify(combatant)}`);
+   throw new Error(`Unsupported argument type ${JSON.stringify(entity)}`);
 };
 
 

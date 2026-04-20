@@ -1918,200 +1918,6 @@ export const combat = [
       }
     ]
   },
-  /*{
-    class: [Race.HALFLING, Race.HUMAN],
-    toHit: [
-      {
-        ac: -10,
-        toHit: [
-          {
-            level: 0,
-            toHit: 26
-          }
-        ]
-      },
-      {
-        ac: -9,
-        toHit: [
-          {
-            level: 0,
-            toHit: 25
-          }
-        ]
-      },
-      {
-        ac: -8,
-        toHit: [
-          {
-            level: 0,
-            toHit: 24
-          }
-        ]
-      },
-      {
-        ac: -7,
-        toHit: [
-          {
-            level: 0,
-            toHit: 23
-          }
-        ]
-      },
-      {
-        ac: -6,
-        toHit: [
-          {
-            level: 0,
-            toHit: 22
-          }
-        ]
-      },
-      {
-        ac: -5,
-        toHit: [
-          {
-            level: 0,
-            toHit: 21
-          }
-        ]
-      },
-      {
-        ac: -4,
-        toHit: [
-          {
-            level: 0,
-            toHit: 20
-          }
-        ]
-      },
-      {
-        ac: -3,
-        toHit: [
-          {
-            level: 0,
-            toHit: 20
-          }
-        ]
-      },
-      {
-        ac: -2,
-        toHit: [
-          {
-            level: 0,
-            toHit: 20
-          }
-        ]
-      },
-      {
-        ac: -1,
-        toHit: [
-          {
-            level: 0,
-            toHit: 20
-          }
-        ]
-      },
-      {
-        ac: 0,
-        toHit: [
-          {
-            level: 0,
-            toHit: 20
-          }
-        ]
-      },
-      {
-        ac: 1,
-        toHit: [
-          {
-            level: 0,
-            toHit: 20
-          }
-        ]
-      },
-      {
-        ac: 2,
-        toHit: [
-          {
-            level: 0,
-            toHit: 19
-          }
-        ]
-      },
-      {
-        ac: 3,
-        toHit: [
-          {
-            level: 0,
-            toHit: 18
-          }
-        ]
-      },
-      {
-        ac: 4,
-        toHit: [
-          {
-            level: 0,
-            toHit: 17
-          }
-        ]
-      },
-      {
-        ac: 5,
-        toHit: [
-          {
-            level: 0,
-            toHit: 16
-          }
-        ]
-      },
-      {
-        ac: 6,
-        toHit: [
-          {
-            level: 0,
-            toHit: 15
-          }
-        ]
-      },
-      {
-        ac: 7,
-        toHit: [
-          {
-            level: 0,
-            toHit: 14
-          }
-        ]
-      },
-      {
-        ac: 8,
-        toHit: [
-          {
-            level: 0,
-            toHit: 13
-          }
-        ]
-      },
-      {
-        ac: 9,
-        toHit: [
-          {
-            level: 0,
-            toHit: 12
-          }
-        ]
-      },
-      {
-        ac: 10,
-        toHit: [
-          {
-            level: 0,
-            toHit: 11
-          }
-        ]
-      }
-    ]
-  },*/
   {
     class: [Class.FIGHTER, Class.PALADIN, Class.RANGER, Class.BARD],
     toHit: [
@@ -7733,6 +7539,93 @@ export const combat = [
         ]
       }
     ]
+  }
+];
+
+export const zeroLevelCombat = [
+  {
+    ac: -10,
+    toHit: 26
+  },
+  {
+    ac: -9,
+    toHit: 25
+  },
+  {
+    ac: -8,
+    toHit: 24
+  },
+  {
+    ac: -7,
+    toHit: 23
+  },
+  {
+    ac: -6,
+    toHit: 22
+  },
+  {
+    ac: -5,
+    toHit: 21
+  },
+  {
+    ac: -4,
+    toHit: 20
+  },
+  {
+    ac: -3,
+    toHit: 20
+  },
+  {
+    ac: -2,
+    toHit: 20
+  },
+  {
+    ac: -1,
+    toHit: 20
+  },
+  {
+    ac: 0,
+    toHit: 20
+  },
+  {
+    ac: 1,
+    toHit: 20
+  },
+  {
+    ac: 2,
+    toHit: 19
+  },
+  {
+    ac: 3,
+    toHit: 18
+  },
+  {
+    ac: 4,
+    toHit: 17
+  },
+  {
+    ac: 5,
+    toHit: 16
+  },
+  {
+    ac: 6,
+    toHit: 15
+  },
+  {
+    ac: 7,
+    toHit: 14
+  },
+  {
+    ac: 8,
+    toHit: 13
+  },
+  {
+    ac: 9,
+    toHit: 12
+  },
+  {
+    ac: 10,
+    toHit: 11
   }
 ];
 
