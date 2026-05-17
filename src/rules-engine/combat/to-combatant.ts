@@ -1,6 +1,7 @@
-import { CharacterType, Class, Race } from "../character/character-type";
+
 import { deriveArmorClass } from "../character/derive-armor-class";
 import { HitDice, MonsterType } from "../monster/monster-type";
+import { CharacterType, Class, Race } from "../types";
 
 export type ToHitSource = {
   type: "character";

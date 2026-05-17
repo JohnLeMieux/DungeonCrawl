@@ -1,7 +1,5 @@
-// TODO rename this file to something more appropriate
-
 import { armorClass, dexterityTable } from "../tables";
-import { CharacterType } from "./character-type";
+import { CharacterType } from "../types";
 
 /**
  * Derive Armor Class for a character based on equipped armor and shield
@@ -10,7 +8,6 @@ import { CharacterType } from "./character-type";
  * @returns Armor Class 
  */
 export const deriveArmorClass = (character: CharacterType) => { 
-  //TODO include dex bonus when attribute tables are available
   const ac = armorClass.find(item => item.armor === character.equippedArmor?.armorType)?.ac ?? 10;
   const shield = character.equippedShield ? -1 : 0;
   const dexBonus = dexterityTable.find(item => item.score === character.dexterity)?.defense ?? 0;

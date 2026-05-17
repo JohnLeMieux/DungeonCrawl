@@ -1,0 +1,12 @@
+export enum ArmorType {
+  NONE,
+  LEATHER,
+  PADDED,
+  STUDDED,
+  RING_MAIL,
+  SCALE_MAIL,
+  CHAIN_MAIL,
+  SPLINT,
+  BANDED_MAIL,
+  PLATE_MAIL
+}

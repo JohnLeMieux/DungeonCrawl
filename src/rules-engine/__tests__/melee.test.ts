@@ -1,9 +1,9 @@
 
 import { toCombatant } from "../combat/to-combatant";
-import { ArmorType, CharacterType, Class, Language, Race } from "../character/character-type";
 import { resolveAttack } from "../combat/resolve-attack";
 import { MonsterType } from "../monster/monster-type";
 import { rollDice } from "../utils/dice/roll";
+import { ArmorType, CharacterType, Class, Language, Race } from "../types";
 
 describe("characterHit()", () => {
   const character: CharacterType = {

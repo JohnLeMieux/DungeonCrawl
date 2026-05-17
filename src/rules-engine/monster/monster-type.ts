@@ -1,4 +1,4 @@
-import { Class } from "../character/character-type";
+import { Class } from "../types";
 
 export interface HitDice {
   dice: number;

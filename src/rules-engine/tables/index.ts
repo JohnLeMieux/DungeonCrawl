@@ -1,7 +1,7 @@
-export { charismaTable } from './charisma';
-export * from './combat-tables';
-export { constitutionTable } from './constitution';
-export { dexterityTable } from './dexterity';
-export { intelligenceTable } from './intelligence';
-export { strengthTable } from './strength';
-export { wisdomTable } from './wisdom';
+export { charismaTable } from './attributes/charisma';
+export * from './combat/combat-tables';
+export { constitutionTable } from './attributes/constitution';
+export { dexterityTable } from './attributes/dexterity';
+export { intelligenceTable } from './attributes/intelligence';
+export { strengthTable } from './attributes/strength';
+export { wisdomTable } from './attributes/wisdom';

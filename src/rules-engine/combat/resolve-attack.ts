@@ -1,7 +1,7 @@
-import { combat, monsterCombat, zeroLevelCombat } from "../tables/combat-tables";
+import { combat, monsterCombat, zeroLevelCombat } from "../tables";
 import { Combatant, ToHitSource } from "./to-combatant";
-import { Class, Race } from "../character/character-type";
 import { HitDice } from "../monster/monster-type";
+import { Class } from "../types";
 
 const lookupCharacterTable = (characterClass: Class, level: number, armorClass: number) => {
   const table = combat.find(item => item.class.includes(characterClass));

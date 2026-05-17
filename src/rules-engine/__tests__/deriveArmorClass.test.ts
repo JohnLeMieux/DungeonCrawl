@@ -1,5 +1,5 @@
-import { ArmorType, CharacterType, Class, Race } from "../character/character-type";
 import { deriveArmorClass } from "../character/derive-armor-class";
+import { ArmorType, CharacterType, Class, Race } from "../types";
 
 describe("deriveArmorClass()", () => {
   const character: CharacterType = {

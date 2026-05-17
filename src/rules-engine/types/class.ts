@@ -1,0 +1,13 @@
+export const enum Class {
+  CLERIC,
+  DRUID,
+  FIGHTER,
+  PALADIN,
+  RANGER,
+  MAGICUSER,
+  ILLUSIONIST,
+  THIEF,
+  ASSASSIN,
+  MONK,
+  BARD
+}

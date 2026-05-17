@@ -1,4 +1,4 @@
-import { ArmorType, Class } from "../character/character-type";
+import { ArmorType, Class } from "../../types";
 
 export const armorClass = [
   {
