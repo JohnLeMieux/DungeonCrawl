@@ -108,11 +108,14 @@ interface Unarmed extends WeaponWithArmorClassAdjustment {
   category: "unarmed";
 };
 
-type MeleeWeapon = WeaponWithDamage & WeaponWithArmorClassAdjustment & {
-  category: "melee";
+interface Armed extends WeaponWithArmorClassAdjustment {
   spaceRequired: number;
   dismountRider?: boolean;
   disarmVsAc8?: boolean;
+};
+
+type MeleeWeapon = WeaponWithDamage & Armed & {
+  category: "melee";
 };
 
 type RangedWeapon = WeaponWithRange & {
@@ -123,11 +126,8 @@ type RangedMissleWeapon = WeaponWithDamage & WeaponWithRange & {
   category: "ranged-missile";
 };
 
-type RangedMeleeWeapon = WeaponWithDamage & WeaponWithArmorClassAdjustment & WeaponWithRange & {
+type RangedMeleeWeapon = WeaponWithDamage & Armed & WeaponWithRange & {
   category: "ranged-melee";
-  spaceRequired: number;
-  dismountRider?: boolean;
-  disarmVsAc8?: boolean;
 };
 
 export type WeaponDefinition = MissileWeapon | Unarmed | MeleeWeapon | RangedWeapon | RangedMissleWeapon | RangedMeleeWeapon;
