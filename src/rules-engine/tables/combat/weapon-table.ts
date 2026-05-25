@@ -1,4 +1,4 @@
-
+import { WeaponDefinition, WeaponType } from "../../types"
 
 /**
  * +2 vs defender's back
@@ -6,14 +6,23 @@
  * -2 medium range
  * -5 long range
  */
-export const weaponTable = [
-  {
-    weaponType: "arrow",
+export const weaponTable: Record<WeaponType, WeaponDefinition> = {
+  [WeaponType.ARROW]: {
+    name: "arrow",
+    category: "missile",
     weight: 2,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d6"
-  }, {
-    weaponType: "composite longbow",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 6
+    }
+  },
+  [WeaponType.COMPOSITE_LONGBOW]: {
+    name: "composite longbow",
+    category: "ranged",
     fireRate: 2,
     shortRange: 6,
     mediumRange: 12,
@@ -29,8 +38,10 @@ export const weaponTable = [
       ac9: 3,
       ac10: 3
     }
-  }, {
-    weaponType: "composite shortbow",
+  },
+  [WeaponType.COMPOSITE_SHORTBOW]: {
+    name: "composite shortbow",
+    category: "ranged",
     fireRate: 2,
     shortRange: 5,
     mediumRange: 10,
@@ -46,8 +57,10 @@ export const weaponTable = [
       ac9: 2,
       ac10: 3
     }
-  }, {
-    weaponType: "longbow",
+  },
+  [WeaponType.LONGBOW]: {
+    name: "longbow",
+    category: "ranged",
     fireRate: 2,
     shortRange: 7,
     mediumRange: 14,
@@ -63,8 +76,10 @@ export const weaponTable = [
       ac9: 3,
       ac10: 3
     }
-  }, {
-    weaponType: "shortbow",
+  },
+  [WeaponType.SHORTBOW]: {
+    name: "shortbow",
+    category: "ranged",
     fireRate: 2,
     shortRange: 5,
     mediumRange: 10,
@@ -80,11 +95,19 @@ export const weaponTable = [
       ac9: 2,
       ac10: 2
     }
-  }, {
-    weaponType: "battle axe",
+  },
+  [WeaponType.BATTLE_AXE]: {
+    name: "battle axe",
+    category: "melee",
     weight: 75,
-    damageVsSmall: "1d8",
-    damageVsLarge: "1d8",
+    damageVsSmall: {
+      dice: 1,
+      sides: 8
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 8
+    },
     length: 4,
     spaceRequired: 4,
     speedFactor: 7,
@@ -99,11 +122,19 @@ export const weaponTable = [
       ac9: 1,
       ac10: 2
     }
-  }, {
-    weaponType: "hand axe",
+  },
+  [WeaponType.HAND_AXE]: {
+    name: "hand axe",
+    category: "melee",
     weight: 50,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d4",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 4
+    },
     length: 1.5,
     spaceRequired: 1,
     speedFactor: 4,
@@ -118,13 +149,22 @@ export const weaponTable = [
       ac9: 1,
       ac10: 1
     }
-  }, {
-    weaponType: "thrown axe",
+  },
+  [WeaponType.THROWING_AXE]: {
+    name: "thrown axe",
+    category: "ranged-melee",
     weight: 50,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d4",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 4
+    },
     length: 1.5,
     spaceRequired: 1,
+    speedFactor: 4,
     fireRate: 1,
     shortRange: 1,
     mediumRange: 2,
@@ -140,11 +180,19 @@ export const weaponTable = [
       ac9: 0,
       ac10: 1
     }
-  }, {
-    weaponType: "bardiche",
+  },
+  [WeaponType.BARDICHE]: {
+    name: "bardiche",
+    category: "melee",
     weight: 125,
-    damageVsSmall: "2d4",
-    damageVsLarge: "3d4",
+    damageVsSmall: {
+      dice: 2,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 3,
+      sides: 4
+    },
     length: 5,
     spaceRequired: 5,
     speedFactor: 9,
@@ -159,11 +207,19 @@ export const weaponTable = [
       ac9: 2,
       ac10: 3
     }
-  }, {
-    weaponType: "bec de corbin",
+  },
+  [WeaponType.BEC_DE_CORBIN]: {
+    name: "bec de corbin",
+    category: "melee",
     weight: 100,
-    damageVsSmall: "1d8",
-    damageVsLarge: "1d6",
+    damageVsSmall: {
+      dice: 1,
+      sides: 8
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 6
+    },
     length: 6,
     spaceRequired: 6,
     speedFactor: 9,
@@ -178,11 +234,19 @@ export const weaponTable = [
       ac9: 0,
       ac10: -1
     }
-  }, {
-    weaponType: "bill-guisarme",
+  },
+  [WeaponType.BILL_GUISARME]: {
+    name: "bill-guisarme",
+    category: "melee",
     weight: 150,
-    damageVsSmall: "2d4",
-    damageVsLarge: "1d10",
+    damageVsSmall: {
+      dice: 2,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 10
+    },
     length: 8,
     spaceRequired: 2,
     speedFactor: 10,
@@ -197,11 +261,19 @@ export const weaponTable = [
       ac9: 0,
       ac10: 0
     }
-  }, {
-    weaponType: "bo stick",
+  },
+  [WeaponType.BO_STICK]: {
+    name: "bo stick",
+    category: "melee",
     weight: 15,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d3",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 3
+    },
     length: 5,
     spaceRequired: 3,
     speedFactor: 3,
@@ -216,11 +288,19 @@ export const weaponTable = [
       ac9: 0,
       ac10: 3
     }
-  }, {
-    weaponType: "club",
+  },
+  [WeaponType.CLUB]: {
+    name: "club",
+    category: "melee",
     weight: 30,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d3",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 3
+    },
     length: 3,
     spaceRequired: 3,
     speedFactor: 4,
@@ -235,13 +315,22 @@ export const weaponTable = [
       ac9: 0,
       ac10: 1
     }
-  }, {
-    weaponType: "thrown club",
+  },
+  [WeaponType.THROWN_CLUB]: {
+    name: "thrown club",
+    category: "ranged-melee",
     weight: 30,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d3",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 3
+    },
     length: 3,
     spaceRequired: 3,
+    speedFactor: 4,
     fireRate: 1,
     shortRange: 1,
     mediumRange: 2,
@@ -257,11 +346,19 @@ export const weaponTable = [
       ac9: 0,
       ac10: 0
     }
-  }, {
-    weaponType: "dagger",
+  },
+  [WeaponType.DAGGER]: {
+    name: "dagger",
+    category: "melee",
     weight: 10,
-    damageVsSmall: "1d4",
-    damageVsLarge: "1d3",
+    damageVsSmall: {
+      dice: 1,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 3
+    },
     length: 1.25,
     spaceRequired: 1,
     speedFactor: 2,
@@ -276,13 +373,22 @@ export const weaponTable = [
       ac9: 1,
       ac10: 3
     }
-  }, {
-    weaponType: "thrown dagger",
+  },
+  [WeaponType.THROWING_DAGGER]: {
+    name: "thrown dagger",
+    category: "ranged-melee",
     weight: 10,
-    damageVsSmall: "1d4",
-    damageVsLarge: "1d3",
+    damageVsSmall: {
+      dice: 1,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 3
+    },
     length: 1.25,
     spaceRequired: 1,
+    speedFactor: 2,
     fireRate: 2,
     shortRange: 1,
     mediumRange: 12,
@@ -298,11 +404,19 @@ export const weaponTable = [
       ac9: 0,
       ac10: 1
     }
-  }, {
-    weaponType: "dart",
+  },
+  [WeaponType.DART]: {
+    name: "dart",
+    category: "ranged-missile",
     weight: 5,
-    damageVsSmall: "1d4",
-    damageVsLarge: "1d3",
+    damageVsSmall: {
+      dice: 1,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 3
+    },
     fireRate: 3,
     shortRange: 1.5,
     mediumRange: 3,
@@ -318,11 +432,19 @@ export const weaponTable = [
       ac9: 0,
       ac10: 1
     }
-  }, {
-    weaponType: "fauchard",
+  },
+  [WeaponType.FAUCHARD]: {
+    name: "fauchard",
+    category: "melee",
     weight: 60,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d8",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 8
+    },
     length: 8,
     spaceRequired: 2,
     speedFactor: 8,
@@ -338,11 +460,19 @@ export const weaponTable = [
       ac10: -1
     },
     dismountRider: true
-  }, {
-    weaponType: "fauchard fork",
+  },
+  [WeaponType.FAUCHARD_FORK]: {
+    name: "fauchard fork",
+    category: "melee",
     weight: 80,
-    damageVsSmall: "1d8",
-    damageVsLarge: "1d10",
+    damageVsSmall: {
+      dice: 1,
+      sides: 8
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 10
+    },
     length: 8,
     spaceRequired: 2,
     speedFactor: 8,
@@ -358,10 +488,11 @@ export const weaponTable = [
       ac10: 1
     },
     dismountRider: true
-  }, {
-    weaponType: "fist",
+  },
+  [WeaponType.FIST]: {
+    name: "fist",
+    category: "unarmed",
     length: 2,
-    spaceRequired: 0,
     speedFactor: 1,
     armorClassAdjustment: {
       ac2: -7,
@@ -374,11 +505,20 @@ export const weaponTable = [
       ac9: 0,
       ac10: 4
     }
-  }, {
-    weaponType: "footman's flail",
+  },
+  [WeaponType.FOOTMANS_FLAIL]: {
+    name: "footman's flail",
+    category: "melee",
     weight: 150,
-    damageVsSmall: "1d6+1",
-    damageVsLarge: "2d4",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6,
+      bonus: 1
+    },
+    damageVsLarge: {
+      dice: 2,
+      sides: 4
+    },
     length: 4,
     spaceRequired: 6,
     speedFactor: 7,
@@ -393,11 +533,21 @@ export const weaponTable = [
       ac9: 1,
       ac10: -1
     }
-  }, {
-    weaponType: "horseman's flail",
+  },
+  [WeaponType.HORSEMANS_FLAIL]: {
+    name: "horseman's flail",
+    category: "melee",
     weight: 35,
-    damageVsSmall: "1d4+1",
-    damageVsLarge: "1d4+1",
+    damageVsSmall: {
+      dice: 1,
+      sides: 4,
+      bonus: 1
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 4,
+      bonus: 1
+    },
     length: 2,
     spaceRequired: 4,
     speedFactor: 6,
@@ -412,11 +562,19 @@ export const weaponTable = [
       ac9: 1,
       ac10: 0
     }
-  }, {
-    weaponType: "military fork",
+  },
+  [WeaponType.MILITARY_FORK]: {
+    name: "military fork",
+    category: "melee",
     weight: 75,
-    damageVsSmall: "1d8",
-    damageVsLarge: "2d4",
+    damageVsSmall: {
+      dice: 1,
+      sides: 8
+    },
+    damageVsLarge: {
+      dice: 2,
+      sides: 4
+    },
     doubleDamageVsLargeWhenSet: true,
     length: 7,
     spaceRequired: 1,
@@ -433,11 +591,19 @@ export const weaponTable = [
       ac10: 1
     },
     dismountRider: true
-  }, {
-    weaponType: "glaive",
+  },
+  [WeaponType.GLAIVE]: {
+    name: "glaive",
+    category: "melee",
     weight: 75,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d10",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 10
+    },
     doubleDamageVsLargeWhenSet: true,
     length: 8,
     spaceRequired: 1,
@@ -453,11 +619,19 @@ export const weaponTable = [
       ac9: 0,
       ac10: 0
     }
-  }, {
-    weaponType: "glaive guisarme",
+  },
+  [WeaponType.GLAIVE_GUISARME]: {
+    name: "glaive guisarme",
+    category: "melee",
     weight: 100,
-    damageVsSmall: "2d4",
-    damageVsLarge: "2d6",
+    damageVsSmall: {
+      dice: 2,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 2,
+      sides: 6
+    },
     doubleDamageVsLargeWhenSet: true,
     length: 8,
     spaceRequired: 1,
@@ -474,11 +648,19 @@ export const weaponTable = [
       ac10: 0
     },
     dismountRider: true
-  }, {
-    weaponType: "guisarme",
+  },
+  [WeaponType.GUISARME]: {
+    name: "guisarme",
+    category: "melee",
     weight: 80,
-    damageVsSmall: "2d4",
-    damageVsLarge: "1d8",
+    damageVsSmall: {
+      dice: 2,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 8
+    },
     length: 6,
     spaceRequired: 2,
     speedFactor: 8,
@@ -494,11 +676,19 @@ export const weaponTable = [
       ac10: -1
     },
     dismountRider: true
-  }, {
-    weaponType: "guisarme-voulge",
+  },
+  [WeaponType.GUISARME_VOULGE]: {
+    name: "guisarme-voulge",
+    category: "melee",
     weight: 150,
-    damageVsSmall: "2d4",
-    damageVsLarge: "2d4",
+    damageVsSmall: {
+      dice: 2,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 2,
+      sides: 4
+    },
     length: 7,
     spaceRequired: 2,
     speedFactor: 10,
@@ -514,11 +704,19 @@ export const weaponTable = [
       ac10: 0
     },
     dismountRider: true
-  }, {
-    weaponType: "halberd",
+  },
+  [WeaponType.HALBERD]: {
+    name: "halberd",
+    category: "melee",
     weight: 175,
-    damageVsSmall: "1d10",
-    damageVsLarge: "2d6",
+    damageVsSmall: {
+      dice: 1,
+      sides: 10
+    },
+    damageVsLarge: {
+      dice: 2,
+      sides: 6
+    },
     length: 5,
     spaceRequired: 5,
     speedFactor: 9,
@@ -533,11 +731,19 @@ export const weaponTable = [
       ac9: 1,
       ac10: 0
     }
-  }, {
-    weaponType: "lucerne hammer",
+  },
+  [WeaponType.LUCERNE_HAMMER]: {
+    name: "lucerne hammer",
+    category: "melee",
     weight: 150,
-    damageVsSmall: "2d4",
-    damageVsLarge: "1d6",
+    damageVsSmall: {
+      dice: 2,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 6
+    },
     length: 5,
     spaceRequired: 5,
     speedFactor: 9,
@@ -553,11 +759,20 @@ export const weaponTable = [
       ac10: 0
     },
     dismountRider: true
-  }, {
-    weaponType: "hammer",
+  },
+  [WeaponType.HAMMER]: {
+    name: "hammer",
+    category: "melee",
     weight: 50,
-    damageVsSmall: "1d4+1",
-    damageVsLarge: "1d4",
+    damageVsSmall: {
+      dice: 1,
+      sides: 4,
+      bonus: 1
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 4
+    },
     length: 1.5,
     spaceRequired: 2,
     speedFactor: 4,
@@ -572,13 +787,23 @@ export const weaponTable = [
       ac9: 0,
       ac10: 0
     }
-  }, {
-    weaponType: "thrown hammer",
+  },
+  [WeaponType.THROWN_HAMMER]: {
+    name: "thrown hammer",
+    category: "ranged-melee",
     weight: 50,
-    damageVsSmall: "1d4+1",
-    damageVsLarge: "1d4",
+    damageVsSmall: {
+      dice: 1,
+      sides: 4,
+      bonus: 1
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 4
+    },
     length: 1.5,
     spaceRequired: 2,
+    speedFactor: 4,
     fireRate: 1,
     shortRange: 1,
     mediumRange: 2,
@@ -594,11 +819,19 @@ export const weaponTable = [
       ac9: 0,
       ac10: 1
     }
-  }, {
-    weaponType: "javelin",
+  },
+  [WeaponType.JAVELIN]: {
+    name: "javelin",
+    category: "ranged-missile",
     weight: 20,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d6",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 6
+    },
     doubleDamageVsLargeWhenSet: true,
     fireRate: 1,
     shortRange: 2,
@@ -615,11 +848,19 @@ export const weaponTable = [
       ac9: 0,
       ac10: 1
     }
-  }, {
-    weaponType: "jo stick",
+  },
+  [WeaponType.JO_STICK]: {
+    name: "jo stick",
+    category: "melee",
     weight: 40,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d4",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 4
+    },
     length: 3,
     spaceRequired: 2,
     speedFactor: 2,
@@ -634,11 +875,19 @@ export const weaponTable = [
       ac9: 0,
       ac10: 2
     }
-  }, {
-    weaponType: "light horse lance",
+  },
+  [WeaponType.LIGHT_HORSE_LANCE]: {
+    name: "light horse lance",
+    category: "melee",
     weight: 50,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d8",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 8
+    },
     doubleDamageVsChargingMount: true,
     length: 10,
     spaceRequired: 1,
@@ -654,11 +903,20 @@ export const weaponTable = [
       ac9: 0,
       ac10: 0
     }
-  }, {
-    weaponType: "medium horse lance",
+  },
+  [WeaponType.MEDIUM_HORSE_LANCE]: {
+    name: "medium horse lance",
+    category: "melee",
     weight: 100,
-    damageVsSmall: "1d6+1",
-    damageVsLarge: "2d6",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6,
+      bonus: 1
+    },
+    damageVsLarge: {
+      dice: 2,
+      sides: 6
+    },
     doubleDamageVsChargingMount: true,
     length: 12,
     spaceRequired: 1,
@@ -674,11 +932,20 @@ export const weaponTable = [
       ac9: 0,
       ac10: 0
     }
-  }, {
-    weaponType: "heavy horse lance",
+  },
+  [WeaponType.HEAVY_HORSE_LANCE]: {
+    name: "heavy horse lance",
+    category: "melee",
     weight: 150,
-    damageVsSmall: "2d4+1",
-    damageVsLarge: "3d6",
+    damageVsSmall: {
+      dice: 2,
+      sides: 4,
+      bonus: 1
+    },
+    damageVsLarge: {
+      dice: 3,
+      sides: 6
+    },
     doubleDamageVsChargingMount: true,
     length: 14,
     spaceRequired: 1,
@@ -694,11 +961,20 @@ export const weaponTable = [
       ac9: 0,
       ac10: 0
     }
-  }, {
-    weaponType: "footman's mace",
+  },
+  [WeaponType.FOOTMANS_MACE]: {
+    name: "footman's mace",
+    category: "melee",
     weight: 100,
-    damageVsSmall: "1d6+1",
-    damageVsLarge: "1d6",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6,
+      bonus: 1
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 6
+    },
     length: 2.5,
     spaceRequired: 4,
     speedFactor: 7,
@@ -713,11 +989,19 @@ export const weaponTable = [
       ac9: 1,
       ac10: -1
     }
-  }, {
-    weaponType: "horseman's mace",
+  },
+  [WeaponType.HORSEMANS_MACE]: {
+    name: "horseman's mace",
+    category: "melee",
     weight: 50,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d4",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 4
+    },
     length: 1.5,
     spaceRequired: 2,
     speedFactor: 6,
@@ -732,11 +1016,20 @@ export const weaponTable = [
       ac9: 0,
       ac10: 0
     }
-  }, {
-    weaponType: "morning star",
+  },
+  [WeaponType.MORNING_STAR]: {
+    name: "morning star",
+    category: "melee",
     weight: 125,
-    damageVsSmall: "2d4",
-    damageVsLarge: "1d6+1",
+    damageVsSmall: {
+      dice: 2,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 6,
+      bonus: 1
+    },
     length: 4,
     spaceRequired: 5,
     speedFactor: 7,
@@ -751,11 +1044,20 @@ export const weaponTable = [
       ac9: 2,
       ac10: 2
     }
-  }, {
-    weaponType: "partisan",
+  },
+  [WeaponType.PARTISAN]: {
+    name: "partisan",
+    category: "melee",
     weight: 80,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d6+1",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 6,
+      bonus: 1
+    },
     length: 7,
     spaceRequired: 3,
     speedFactor: 9,
@@ -770,11 +1072,20 @@ export const weaponTable = [
       ac9: 0,
       ac10: 0
     }
-  }, {
-    weaponType: "footman's military pick",
+  },
+  [WeaponType.FOOTMANS_MILITARY_PICK]: {
+    name: "footman's military pick",
+    category: "melee",
     weight: 60,
-    damageVsSmall: "1d6+1",
-    damageVsLarge: "2d4",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6,
+      bonus: 1
+    },
+    damageVsLarge: {
+      dice: 2,
+      sides: 4
+    },
     length: 4,
     spaceRequired: 4,
     speedFactor: 7,
@@ -789,11 +1100,20 @@ export const weaponTable = [
       ac9: -1,
       ac10: -2
     }
-  }, {
-    weaponType: "horseman's military pick",
+  },
+  [WeaponType.HORSEMANS_MILITARY_PICK]: {
+    name: "horseman's military pick",
+    category: "melee",
     weight: 40,
-    damageVsSmall: "1d4+1",
-    damageVsLarge: "1d4",
+    damageVsSmall: {
+      dice: 1,
+      sides: 4,
+      bonus: 1
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 4
+    },
     length: 2,
     spaceRequired: 2,
     speedFactor: 5,
@@ -808,11 +1128,19 @@ export const weaponTable = [
       ac9: -1,
       ac10: -1
     }
-  }, {
-    weaponType: "awl pike",
+  },
+  [WeaponType.AWL_PIKE]: {
+    name: "awl pike",
+    category: "melee",
     weight: 80,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d12",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 12
+    },
     length: 18,
     spaceRequired: 1,
     speedFactor: 13,
@@ -827,18 +1155,38 @@ export const weaponTable = [
       ac9: -1,
       ac10: -2
     }
-  }, {
-    weaponType: "light quarrel",
+  },
+  [WeaponType.LIGHT_QUARREL]: {
+    name: "light quarrel",
+    category: "missile",
     weight: 1,
-    damageVsSmall: "1d4",
-    damageVsLarge: "1d4"
-  }, {
-    weaponType: "heavy quarrel",
+    damageVsSmall: {
+      dice: 1,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 4
+    }
+  },
+  [WeaponType.HEAVY_QUARREL]: {
+    name: "heavy quarrel",
+    category: "missile",
     weight: 2,
-    damageVsSmall: "1d4+1",
-    damageVsLarge: "1d6+1"
-  }, {
-    weaponType: "heavy crossbow",
+    damageVsSmall: {
+      dice: 1,
+      sides: 4,
+      bonus: 1
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 6,
+      bonus: 1
+    }
+  },
+  [WeaponType.HEAVY_CROSSBOW]: {
+    name: "heavy crossbow",
+    category: "ranged",
     fireRate: .5,
     shortRange: 8,
     mediumRange: 16,
@@ -854,8 +1202,10 @@ export const weaponTable = [
       ac9: 4,
       ac10: 4
     }
-  }, {
-    weaponType: "light crossbow",
+  },
+  [WeaponType.LIGHT_CROSSBOW]: {
+    name: "light crossbow",
+    category: "ranged",
     fireRate: 1,
     shortRange: 6,
     mediumRange: 12,
@@ -871,11 +1221,19 @@ export const weaponTable = [
       ac9: 3,
       ac10: 3
     }
-  }, {
-    weaponType: "ranseur",
+  },
+  [WeaponType.RANSEUR]: {
+    name: "ranseur",
+    category: "melee",
     weight: 50,
-    damageVsSmall: "2d4",
-    damageVsLarge: "2d4",
+    damageVsSmall: {
+      dice: 2,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 2,
+      sides: 4
+    },
     length: 8,
     spaceRequired: 1,
     speedFactor: 8,
@@ -891,11 +1249,19 @@ export const weaponTable = [
       ac10: 1
     },
     dismountRider: true
-  }, {
-    weaponType: "scimitar",
+  },
+  [WeaponType.SCIMITAR]: {
+    name: "scimitar",
+    category: "melee",
     weight: 40,
-    damageVsSmall: "1d8",
-    damageVsLarge: "1d8",
+    damageVsSmall: {
+      dice: 1,
+      sides: 8
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 8
+    },
     length: 3,
     spaceRequired: 2,
     speedFactor: 4,
@@ -910,11 +1276,21 @@ export const weaponTable = [
       ac9: 1,
       ac10: 3
     }
-  }, {
-    weaponType: "sling bullet",
+  },
+  [WeaponType.SLING_BULLET]: {
+    name: "sling bullet",
+    category: "ranged-missile",
     weight: 2,
-    damageVsSmall: "1d4+1",
-    damageVsLarge: "1d6+1",
+    damageVsSmall: {
+      dice: 1,
+      sides: 4,
+      bonus: 1
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 6,
+      bonus: 1
+    },
     fireRate: 1,
     shortRange: 5,
     mediumRange: 10,
@@ -930,11 +1306,19 @@ export const weaponTable = [
       ac9: 1,
       ac10: 3
     }
-  }, {
-    weaponType: "sling stone",
+  },
+  [WeaponType.SLING_STONE]: {
+    name: "sling stone",
+    category: "ranged-missile",
     weight: 1,
-    damageVsSmall: "1d4",
-    damageVsLarge: "1d4",
+    damageVsSmall: {
+      dice: 1,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 4
+    },
     fireRate: 1,
     shortRange: 4,
     mediumRange: 8,
@@ -950,11 +1334,19 @@ export const weaponTable = [
       ac9: 1,
       ac10: 3
     }
-  }, {
-    weaponType: "spear",
+  },
+  [WeaponType.SPEAR]: {
+    name: "spear",
+    category: "melee",
     weight: 50,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d8",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 8
+    },
     doubleDamageWhenSet: true,
     length: 9,
     spaceRequired: 1,
@@ -970,14 +1362,23 @@ export const weaponTable = [
       ac9: 0,
       ac10: 0
     }
-  }, {
-    weaponType: "thrown spear",
+  },
+  [WeaponType.THROWN_SPEAR]: {
+    name: "thrown spear",
+    category: "ranged-melee",
     weight: 50,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d8",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 8
+    },
     doubleDamageWhenSet: true,
     length: 9,
     spaceRequired: 1,
+    speedFactor: 7,
     fireRate: 1,
     shortRange: 1,
     mediumRange: 2,
@@ -993,11 +1394,20 @@ export const weaponTable = [
       ac9: 0,
       ac10: 0
     }
-  }, {
-    weaponType: "spetum",
+  },
+  [WeaponType.SPETUM]: {
+    name: "spetum",
+    category: "melee",
     weight: 50,
-    damageVsSmall: "1d6+1",
-    damageVsLarge: "2d6",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6,
+      bonus: 1
+    },
+    damageVsLarge: {
+      dice: 2,
+      sides: 6
+    },
     length: 8,
     spaceRequired: 1,
     speedFactor: 8,
@@ -1011,13 +1421,21 @@ export const weaponTable = [
       ac8: 0,
       ac9: 1,
       ac10: 2
-  },
+    },
     disarmVsAc8: true
-  }, {
-    weaponType: "quarterstaff",
+  },
+  [WeaponType.QUARTERSTAFF]: {
+    name: "quarterstaff",
+    category: "melee",
     weight: 50,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d6",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 6
+    },
     length: 7,
     spaceRequired: 3,
     speedFactor: 4,
@@ -1032,11 +1450,19 @@ export const weaponTable = [
       ac9: 1,
       ac10: 1
     }
-  }, {
-    weaponType: "bastard sword", // treat as long sword if used one-handed
+  },
+  [WeaponType.BASTARD_SWORD]: {// treat as long sword if used one-handed
+    name: "bastard sword",
+    category: "melee",
     weight: 100,
-    damageVsSmall: "2d4",
-    damageVsLarge: "2d8",
+    damageVsSmall: {
+      dice: 2,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 2,
+      sides: 8
+    },
     length: 4.5,
     spaceRequired: 4,
     speedFactor: 6,
@@ -1051,11 +1477,20 @@ export const weaponTable = [
       ac9: 1,
       ac10: 0
     },
-  }, {
-    weaponType: "broadsword",
+  },
+  [WeaponType.BROADSWORD]: {
+    name: "broadsword",
+    category: "melee",
     weight: 75,
-    damageVsSmall: "2d4",
-    damageVsLarge: "1d6+1",
+    damageVsSmall: {
+      dice: 2,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 6,
+      bonus: 1
+    },
     length: 3.5,
     spaceRequired: 4,
     speedFactor: 5,
@@ -1070,11 +1505,19 @@ export const weaponTable = [
       ac9: 1,
       ac10: 2
     }
-  }, {
-    weaponType: "longsword",
+  },
+  [WeaponType.LONGSWORD]: {
+    name: "longsword",
+    category: "melee",
     weight: 60,
-    damageVsSmall: "1d8",
-    damageVsLarge: "1d12",
+    damageVsSmall: {
+      dice: 1,
+      sides: 8
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 12
+    },
     length: 3.5,
     spaceRequired: 3,
     speedFactor: 5,
@@ -1089,11 +1532,19 @@ export const weaponTable = [
       ac9: 1,
       ac10: 2
     }
-  }, {
-    weaponType: "shortsword",
+  },
+  [WeaponType.SHORTSWORD]: {
+    name: "shortsword",
+    category: "melee",
     weight: 35,
-    damageVsSmall: "1d6",
-    damageVsLarge: "1d8",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6
+    },
+    damageVsLarge: {
+      dice: 1,
+      sides: 8
+    },
     length: 2,
     spaceRequired: 1,
     speedFactor: 3,
@@ -1108,11 +1559,19 @@ export const weaponTable = [
       ac9: 0,
       ac10: 2
     }
-  }, {
-    weaponType: "two handed sword",
+  },
+  [WeaponType.TWO_HANDED_SWORD]: {
+    name: "two handed sword",
+    category: "melee",
     weight: 250,
-    damageVsSmall: "1d10",
-    damageVsLarge: "3d6",
+    damageVsSmall: {
+      dice: 1,
+      sides: 10
+    },
+    damageVsLarge: {
+      dice: 3,
+      sides: 6
+    },
     length: 6,
     spaceRequired: 6,
     speedFactor: 10,
@@ -1127,11 +1586,20 @@ export const weaponTable = [
       ac9: 1,
       ac10: 0
     }
-  }, {
-    weaponType: "trident",
+  },
+  [WeaponType.TRIDENT]: {
+    name: "trident",
+    category: "melee",
     weight: 50,
-    damageVsSmall: "1d6+1",
-    damageVsLarge: "3d4",
+    damageVsSmall: {
+      dice: 1,
+      sides: 6,
+      bonus: 1
+    },
+    damageVsLarge: {
+      dice: 3,
+      sides: 4
+    },
     length: 6,
     spaceRequired: 1,
     speedFactor: 7,
@@ -1146,11 +1614,19 @@ export const weaponTable = [
       ac9: 0,
       ac10: 1
     }
-  }, {
-    weaponType: "voulge",
+  },
+  [WeaponType.VOULGE]: {
+    name: "voulge",
+    category: "melee",
     weight: 125,
-    damageVsSmall: "2d4",
-    damageVsLarge: "2d4",
+    damageVsSmall: {
+      dice: 2,
+      sides: 4
+    },
+    damageVsLarge: {
+      dice: 2,
+      sides: 4
+    },
     length: 8,
     spaceRequired: 2,
     speedFactor: 10,
@@ -1166,4 +1642,4 @@ export const weaponTable = [
       ac10: 0
     }
   }
-];
+};

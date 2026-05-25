@@ -7,4 +7,4 @@ export { Item } from './item';
 export { Language } from './language';
 export { Race } from './race';
 export { Spell } from './spell';
-export { Weapon } from './weapon';
+export * from './weapon';
