@@ -22,6 +22,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.COMPOSITE_LONGBOW]: {
     name: "composite longbow",
+    value: 100,
     category: "ranged",
     fireRate: 2,
     shortRange: 6,
@@ -41,6 +42,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.COMPOSITE_SHORTBOW]: {
     name: "composite shortbow",
+    value: 75,
     category: "ranged",
     fireRate: 2,
     shortRange: 5,
@@ -60,6 +62,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.LONGBOW]: {
     name: "longbow",
+    value: 60,
     category: "ranged",
     fireRate: 2,
     shortRange: 7,
@@ -79,6 +82,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.SHORTBOW]: {
     name: "shortbow",
+    value: 15,
     category: "ranged",
     fireRate: 2,
     shortRange: 5,
@@ -98,6 +102,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.BATTLE_AXE]: {
     name: "battle axe",
+    value: 5,
     category: "melee",
     weight: 75,
     damageVsSmall: {
@@ -125,6 +130,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.HAND_AXE]: {
     name: "hand axe",
+    value: 1,
     category: "melee",
     weight: 50,
     damageVsSmall: {
@@ -152,6 +158,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.THROWING_AXE]: {
     name: "thrown axe",
+    value: 1,
     category: "ranged-melee",
     weight: 50,
     damageVsSmall: {
@@ -183,6 +190,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.BARDICHE]: {
     name: "bardiche",
+    value: 7,
     category: "melee",
     weight: 125,
     damageVsSmall: {
@@ -210,6 +218,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.BEC_DE_CORBIN]: {
     name: "bec de corbin",
+    value: 6,
     category: "melee",
     weight: 100,
     damageVsSmall: {
@@ -237,6 +246,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.BILL_GUISARME]: {
     name: "bill-guisarme",
+    value: 6,
     category: "melee",
     weight: 150,
     damageVsSmall: {
@@ -349,6 +359,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.DAGGER]: {
     name: "dagger",
+    value: 2,
     category: "melee",
     weight: 10,
     damageVsSmall: {
@@ -376,6 +387,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.THROWING_DAGGER]: {
     name: "thrown dagger",
+    value: 2,
     category: "ranged-melee",
     weight: 10,
     damageVsSmall: {
@@ -407,6 +419,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.DART]: {
     name: "dart",
+    value: .25,
     category: "ranged-missile",
     weight: 5,
     damageVsSmall: {
@@ -435,6 +448,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.FAUCHARD]: {
     name: "fauchard",
+    value: 3,
     category: "melee",
     weight: 60,
     damageVsSmall: {
@@ -463,6 +477,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.FAUCHARD_FORK]: {
     name: "fauchard fork",
+    value: 8,
     category: "melee",
     weight: 80,
     damageVsSmall: {
@@ -508,6 +523,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.FOOTMANS_FLAIL]: {
     name: "footman's flail",
+    value: 3,
     category: "melee",
     weight: 150,
     damageVsSmall: {
@@ -536,6 +552,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.HORSEMANS_FLAIL]: {
     name: "horseman's flail",
+    value: 8,
     category: "melee",
     weight: 35,
     damageVsSmall: {
@@ -565,6 +582,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.MILITARY_FORK]: {
     name: "military fork",
+    value: 4,
     category: "melee",
     weight: 75,
     damageVsSmall: {
@@ -594,6 +612,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.GLAIVE]: {
     name: "glaive",
+    value: 6,
     category: "melee",
     weight: 75,
     damageVsSmall: {
@@ -622,6 +641,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.GLAIVE_GUISARME]: {
     name: "glaive guisarme",
+    value: 10,
     category: "melee",
     weight: 100,
     damageVsSmall: {
@@ -651,6 +671,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.GUISARME]: {
     name: "guisarme",
+    value: 5,
     category: "melee",
     weight: 80,
     damageVsSmall: {
@@ -679,6 +700,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.GUISARME_VOULGE]: {
     name: "guisarme-voulge",
+    value: 7,
     category: "melee",
     weight: 150,
     damageVsSmall: {
@@ -707,6 +729,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.HALBERD]: {
     name: "halberd",
+    value: 9,
     category: "melee",
     weight: 175,
     damageVsSmall: {
@@ -734,6 +757,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.LUCERNE_HAMMER]: {
     name: "lucerne hammer",
+    value: 7,
     category: "melee",
     weight: 150,
     damageVsSmall: {
@@ -762,6 +786,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.HAMMER]: {
     name: "hammer",
+    value: 1,
     category: "melee",
     weight: 50,
     damageVsSmall: {
@@ -790,6 +815,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.THROWN_HAMMER]: {
     name: "thrown hammer",
+    value: 1,
     category: "ranged-melee",
     weight: 50,
     damageVsSmall: {
@@ -822,6 +848,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.JAVELIN]: {
     name: "javelin",
+    value: .5,
     category: "ranged-missile",
     weight: 20,
     damageVsSmall: {
@@ -878,6 +905,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.LIGHT_HORSE_LANCE]: {
     name: "light horse lance",
+    value: 6,
     category: "melee",
     weight: 50,
     damageVsSmall: {
@@ -906,6 +934,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.MEDIUM_HORSE_LANCE]: {
     name: "medium horse lance",
+    value: 6,
     category: "melee",
     weight: 100,
     damageVsSmall: {
@@ -935,6 +964,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.HEAVY_HORSE_LANCE]: {
     name: "heavy horse lance",
+    value: 6,
     category: "melee",
     weight: 150,
     damageVsSmall: {
@@ -964,6 +994,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.FOOTMANS_MACE]: {
     name: "footman's mace",
+    value: 8,
     category: "melee",
     weight: 100,
     damageVsSmall: {
@@ -992,6 +1023,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.HORSEMANS_MACE]: {
     name: "horseman's mace",
+    value: 4,
     category: "melee",
     weight: 50,
     damageVsSmall: {
@@ -1019,6 +1051,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.MORNING_STAR]: {
     name: "morning star",
+    value: 5,
     category: "melee",
     weight: 125,
     damageVsSmall: {
@@ -1047,6 +1080,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.PARTISAN]: {
     name: "partisan",
+    value: 10,
     category: "melee",
     weight: 80,
     damageVsSmall: {
@@ -1075,6 +1109,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.FOOTMANS_MILITARY_PICK]: {
     name: "footman's military pick",
+    value: 8,
     category: "melee",
     weight: 60,
     damageVsSmall: {
@@ -1103,6 +1138,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.HORSEMANS_MILITARY_PICK]: {
     name: "horseman's military pick",
+    value: 5,
     category: "melee",
     weight: 40,
     damageVsSmall: {
@@ -1131,6 +1167,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.AWL_PIKE]: {
     name: "awl pike",
+    value: 3,
     category: "melee",
     weight: 80,
     damageVsSmall: {
@@ -1158,6 +1195,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.LIGHT_QUARREL]: {
     name: "light quarrel",
+    value: .05,
     category: "missile",
     weight: 1,
     damageVsSmall: {
@@ -1171,6 +1209,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.HEAVY_QUARREL]: {
     name: "heavy quarrel",
+    value: 2,
     category: "missile",
     weight: 2,
     damageVsSmall: {
@@ -1186,6 +1225,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.HEAVY_CROSSBOW]: {
     name: "heavy crossbow",
+    value: 20,
     category: "ranged",
     fireRate: .5,
     shortRange: 8,
@@ -1205,6 +1245,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.LIGHT_CROSSBOW]: {
     name: "light crossbow",
+    value: 12,
     category: "ranged",
     fireRate: 1,
     shortRange: 6,
@@ -1224,6 +1265,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.RANSEUR]: {
     name: "ranseur",
+    value: 4,
     category: "melee",
     weight: 50,
     damageVsSmall: {
@@ -1252,6 +1294,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.SCIMITAR]: {
     name: "scimitar",
+    value: 15,
     category: "melee",
     weight: 40,
     damageVsSmall: {
@@ -1337,6 +1380,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.SPEAR]: {
     name: "spear",
+    value: 1,
     category: "melee",
     weight: 50,
     damageVsSmall: {
@@ -1365,6 +1409,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.THROWN_SPEAR]: {
     name: "thrown spear",
+    value: 1,
     category: "ranged-melee",
     weight: 50,
     damageVsSmall: {
@@ -1397,6 +1442,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.SPETUM]: {
     name: "spetum",
+    value: 3,
     category: "melee",
     weight: 50,
     damageVsSmall: {
@@ -1453,6 +1499,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.BASTARD_SWORD]: {// treat as long sword if used one-handed
     name: "bastard sword",
+    value: 25,
     category: "melee",
     weight: 100,
     damageVsSmall: {
@@ -1480,6 +1527,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.BROADSWORD]: {
     name: "broadsword",
+    value: 10,
     category: "melee",
     weight: 75,
     damageVsSmall: {
@@ -1508,6 +1556,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.LONGSWORD]: {
     name: "longsword",
+    value: 15,
     category: "melee",
     weight: 60,
     damageVsSmall: {
@@ -1535,6 +1584,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.SHORTSWORD]: {
     name: "shortsword",
+    value: 8,
     category: "melee",
     weight: 35,
     damageVsSmall: {
@@ -1562,6 +1612,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.TWO_HANDED_SWORD]: {
     name: "two handed sword",
+    value: 30,
     category: "melee",
     weight: 250,
     damageVsSmall: {
@@ -1589,6 +1640,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.TRIDENT]: {
     name: "trident",
+    value: 4,
     category: "melee",
     weight: 50,
     damageVsSmall: {
@@ -1617,6 +1669,7 @@ export const weaponTable: Record<WeaponType, WeaponDefinition> = {
   },
   [WeaponType.VOULGE]: {
     name: "voulge",
+    value: 2,
     category: "melee",
     weight: 125,
     damageVsSmall: {
