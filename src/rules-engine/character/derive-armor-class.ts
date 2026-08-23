@@ -13,7 +13,7 @@ export const deriveArmorClass = (character: CharacterType) => {
   const ac = armor?.category === "armor" ? armor.armorClass : 10;
   const shield = character.equippedShield ? -1 : 0;
   const dexBonus = dexterityTable.find(item => item.score === character.dexterity)?.defense ?? 0;
-  const magicBonus = armor?.magicBonus ?? 0;
+  const magicBonus = equippedArmor?.magicBonus ?? 0;
   return {
     armorClass: ac + shield + dexBonus - magicBonus,
     breakdown: {
