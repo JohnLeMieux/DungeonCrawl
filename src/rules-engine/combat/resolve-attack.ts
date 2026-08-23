@@ -46,6 +46,10 @@ const lookupZeroLevelTable = (armorClass: number) => {
   return toHit;
 }
 
+const assertNever = (value: never): never => {
+  throw new Error(`Unexpected to-hit source: ${value}`);
+};
+
 const getRequiredRoll = (source: ToHitSource, armorClass: number) => {
   switch (source.type) {
     case "character":
@@ -56,7 +60,7 @@ const getRequiredRoll = (source: ToHitSource, armorClass: number) => {
       return lookupZeroLevelTable(armorClass);
     /* istanbul ignore next */
     default:
-      return 0;
+      return assertNever(source);
   }
 };
 
