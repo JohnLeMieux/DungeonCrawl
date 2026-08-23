@@ -1,4 +1,4 @@
-import { armorClass, dexterityTable } from "../tables";
+import { armorTable, dexterityTable } from "../tables";
 import { CharacterType } from "../types";
 
 /**
@@ -8,10 +8,12 @@ import { CharacterType } from "../types";
  * @returns Armor Class 
  */
 export const deriveArmorClass = (character: CharacterType) => { 
-  const ac = armorClass.find(item => item.armor === character.equippedArmor?.armorType)?.ac ?? 10;
+  const { equippedArmor } = character;
+  const armor = equippedArmor ? armorTable[equippedArmor.type] : null;
+  const ac = armor?.category === "armor" ? armor.armorClass : 10;
   const shield = character.equippedShield ? -1 : 0;
   const dexBonus = dexterityTable.find(item => item.score === character.dexterity)?.defense ?? 0;
-  const magicBonus = character.equippedArmor?.magicBonus ?? 0;
+  const magicBonus = armor?.magicBonus ?? 0;
   return {
     armorClass: ac + shield + dexBonus - magicBonus,
     breakdown: {

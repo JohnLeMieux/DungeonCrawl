@@ -1,6 +1,6 @@
 export { Alignment } from './alignment';
 export { ArmorType } from './armor-type';
-export { Armor } from './armor';
+export { ArmorDefinition } from './armor';
 export { CharacterType } from './character-type';
 export { Class } from './class';
 export { Item } from './item';

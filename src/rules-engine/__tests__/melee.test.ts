@@ -146,14 +146,10 @@ describe("monsterHit()", () => {
     monster.hitDice = { dice: 1, sides: 8, bonus: -2 };
     character.dexterity = 18;
     character.equippedArmor = {
-      name: "Plate Mail",
-      category: "armor",
-      value: 400,
-      weight: 400,
-      armorType: ArmorType.PLATE_MAIL,
-      magicBonus: +3
+      type: ArmorType.PLATE,
+      magicBonus: 3
     };
-    character.equippedShield = true;
+    character.equippedShield = { type: ArmorType.SMALL_SHIELD };
     const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
     expect(result.hit).toBe(false);
   });
@@ -162,14 +158,10 @@ describe("monsterHit()", () => {
     monster.hitDice = { dice: 1, sides: 8 };
     character.dexterity = 18;
     character.equippedArmor = {
-      name: "Plate Mail",
-      category: "armor",
-      value: 400,
-      weight: 400,
-      armorType: ArmorType.PLATE_MAIL,
-      magicBonus: +5
+      type: ArmorType.PLATE,
+      magicBonus: 5
     };
-    character.equippedShield = true;
+    character.equippedShield = { type: ArmorType.SMALL_SHIELD };
     const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
     expect(result.hit).toBe(false);
   });
@@ -178,14 +170,10 @@ describe("monsterHit()", () => {
     monster.hitDice = { dice: 1, sides: 8, bonus: -1 };
     character.dexterity = 18;
     character.equippedArmor = {
-      name: "Plate Mail",
-      category: "armor",
-      value: 400,
-      weight: 400,
-      armorType: ArmorType.PLATE_MAIL,
-      magicBonus: +4
+      type: ArmorType.PLATE,
+      magicBonus: 4
     };
-    character.equippedShield = true;
+    character.equippedShield = { type: ArmorType.SMALL_SHIELD };
     const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
     expect(result.hit).toBe(false);
   });
@@ -194,14 +182,10 @@ describe("monsterHit()", () => {
     monster.hitDice = { dice: 1, sides: 8, bonus: 1 };
     character.dexterity = 18;
     character.equippedArmor = {
-      name: "Plate Mail",
-      category: "armor",
-      value: 400,
-      weight: 400,
-      armorType: ArmorType.PLATE_MAIL,
-      magicBonus: +6
+      type: ArmorType.PLATE,
+      magicBonus: 6
     };
-    character.equippedShield = true;
+    character.equippedShield = { type: ArmorType.SMALL_SHIELD };
     const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
     expect(result.hit).toBe(false);
   });

@@ -1,0 +1,22 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ArmorType = void 0;
+var ArmorType;
+(function (ArmorType) {
+    ArmorType[ArmorType["BANDED"] = 0] = "BANDED";
+    ArmorType[ArmorType["CHAIN"] = 1] = "CHAIN";
+    ArmorType[ArmorType["ELVEN_CHAIN"] = 2] = "ELVEN_CHAIN";
+    ArmorType[ArmorType["LEATHER"] = 3] = "LEATHER";
+    ArmorType[ArmorType["PADDED"] = 4] = "PADDED";
+    ArmorType[ArmorType["PLATE"] = 5] = "PLATE";
+    ArmorType[ArmorType["RING"] = 6] = "RING";
+    ArmorType[ArmorType["SCALE"] = 7] = "SCALE";
+    ArmorType[ArmorType["SPLINT"] = 8] = "SPLINT";
+    ArmorType[ArmorType["STUDDED_LEATHER"] = 9] = "STUDDED_LEATHER";
+    ArmorType[ArmorType["SMALL_SHIELD"] = 10] = "SMALL_SHIELD";
+    ArmorType[ArmorType["SMALL_WOODEN_SHIELD"] = 11] = "SMALL_WOODEN_SHIELD";
+    ArmorType[ArmorType["MEDIUM_SHIELD"] = 12] = "MEDIUM_SHIELD";
+    ArmorType[ArmorType["LARGE_SHIELD"] = 13] = "LARGE_SHIELD";
+    ArmorType[ArmorType["SMALL_HELMET"] = 14] = "SMALL_HELMET";
+    ArmorType[ArmorType["GREAT_HELMET"] = 15] = "GREAT_HELMET";
+})(ArmorType = exports.ArmorType || (exports.ArmorType = {}));

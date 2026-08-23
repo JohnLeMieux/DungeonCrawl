@@ -1,12 +1,12 @@
 import { Maybe } from "../utils/core/maybe";
 import { Alignment } from "./alignment";
-import { Armor } from "./armor";
+import { EquippedArmor, EquippedHelmet, EquippedShield } from "./armor-type";
 import { Class } from "./class";
 import { Item } from "./item";
 import { Language } from "./language";
 import { Race } from "./race";
 import { Spell } from "./spell";
-import { Weapon } from "./weapon";
+import { WeaponType } from "./weapon";
 
 export interface CharacterType {
   name: string;
@@ -14,8 +14,8 @@ export interface CharacterType {
   sex: "male" | "female";
   race: Race;
   age?: number;
-  // TODO melee support for multiclass or classless human/halfling
-  class: Class/* | Class[] | undefined*/;
+  // TODO melee support for multiclass
+  class: Class/* | Class[]*/;
   level: number;
   strength: number;
   exceptionalStrength?: number;
@@ -31,8 +31,8 @@ export interface CharacterType {
   money?: number;
   inventory: Item[];
   armorClass?: number;
-  equippedArmor?: Maybe<Armor>;
-  equippedShield?: boolean;
-  // TODO define Weapon type
-  equippedWeapon?: Maybe<Weapon>;
+  equippedArmor?: Maybe<EquippedArmor>;
+  equippedShield?: Maybe<EquippedShield>;
+  equippedHelmet?: Maybe<EquippedHelmet>;
+  equippedWeapon?: Maybe<WeaponType>;
 };

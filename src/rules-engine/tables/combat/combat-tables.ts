@@ -1,47 +1,4 @@
-import { ArmorType, Class } from "../../types";
-
-export const armorClass = [
-  {
-    armor: ArmorType.PLATE_MAIL,
-    ac: 3
-  },
-  {
-    armor: ArmorType.SPLINT,
-    ac: 4
-  },
-  {
-    armor: ArmorType.BANDED_MAIL,
-    ac: 4
-  },
-  {
-    armor: ArmorType.CHAIN_MAIL,
-    ac: 5
-  },
-  {
-    armor: ArmorType.SCALE_MAIL,
-    ac: 6
-  },
-  {
-    armor: ArmorType.STUDDED,
-    ac: 7
-  },
-  {
-    armor: ArmorType.RING_MAIL,
-    ac: 7
-  },
-  {
-    armor: ArmorType.LEATHER,
-    ac: 8
-  },
-  {
-    armor: ArmorType.PADDED,
-    ac: 8
-  },
-  {
-    armor: ArmorType.NONE,
-    ac: 10
-  }
-];
+import { Class } from "../../types";
 
 export const combat = [
   {

@@ -1,7 +1,25 @@
-import { ArmorType } from "./armor-type";
 import { Item } from "./item";
 
 export interface Armor extends Item {
-  armorType: ArmorType;
-  magicBonus: number;
+  category: "armor";
+  bulk: "bulky" | "fairly" | "non";
+  weight: number;
+  baseMovement: number;
+  armorClass: number;
+  magicBonus?: number;
 };
+
+export interface Shield extends Item { 
+  category: "shield";
+  size: "small" | "medium" | "large";
+  attacksCountered: number;
+  magicBonus?: number;
+};
+
+export interface Helmet extends Item {
+  category: "helmet";
+  armorClass?: number;
+  magicBonus?: number;
+}
+
+export type ArmorDefinition = Armor | Shield | Helmet;
