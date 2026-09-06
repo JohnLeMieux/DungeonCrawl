@@ -189,4 +189,24 @@ describe("monsterHit()", () => {
     const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
     expect(result.hit).toBe(false);
   });
+
+  it("uses maximum 10 ac", () => { 
+    character.class = Class.CLERIC;
+    character.dexterity = 3;
+    character.equippedArmor = null
+    character.equippedShield = null;
+    monster.hitDice = { dice: 1, sides: 8 };
+    const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
+    expect(result.needed).toBe(9);
+  });
+
+  it("uses minimum -10 ac", () => {
+    character.class = Class.ILLUSIONIST;
+    character.dexterity = 18;
+    character.equippedArmor = { type: ArmorType.PLATE, magicBonus: 20 };
+    character.equippedShield = { type: ArmorType.SMALL_SHIELD };
+    monster.hitDice = { dice: 1, sides: 8 };
+    const result = resolveAttack(toCombatant(monster), toCombatant(character), rollDice(1, 20));
+    expect(result.needed).toBe(24);
+  });
 });

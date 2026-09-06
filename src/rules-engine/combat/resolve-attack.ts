@@ -46,6 +46,7 @@ const lookupZeroLevelTable = (armorClass: number) => {
   return toHit;
 }
 
+/* istanbul ignore next */
 const assertNever = (value: never): never => {
   throw new Error(`Unexpected to-hit source: ${value}`);
 };

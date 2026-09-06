@@ -155,4 +155,41 @@ describe("deriveArmorClass()", () => {
 
     expect(deriveArmorClass(character).armorClass).toBe(2);
   });
+  
+  it("should return ac 6 for no armor and dexterity 18", () => {
+    character.equippedArmor = null;
+    character.equippedShield = null;
+    character.dexterity = 18;
+
+    expect(deriveArmorClass(character).armorClass).toBe(6);
+  });
+
+  it("should return ac 7 for plate mail and dexterity 3", () => {
+    character.equippedArmor = { type: ArmorType.PLATE };
+    character.dexterity = 3;
+
+    expect(deriveArmorClass(character).armorClass).toBe(7);
+  });
+
+  it("should return ac 2 for +1 plate mail", () => {
+    character.equippedArmor = { type: ArmorType.PLATE, magicBonus: 1 };
+    character.dexterity = 9;
+
+    expect(deriveArmorClass(character).armorClass).toBe(2);
+  });
+
+  it("should return ac 1 for +2 plate mail", () => {
+    character.equippedArmor = { type: ArmorType.PLATE, magicBonus: 2 };
+    character.dexterity = 9;
+
+    expect(deriveArmorClass(character).armorClass).toBe(1);
+  });
+
+  it("should return ac -3 for +1 plate mail and dexterity 18", () => {
+    character.equippedArmor = { type: ArmorType.PLATE, magicBonus: 1 };
+    character.equippedShield = { type: ArmorType.SMALL_SHIELD};
+    character.dexterity = 18;
+
+    expect(deriveArmorClass(character).armorClass).toBe(-3);
+  });
 });
