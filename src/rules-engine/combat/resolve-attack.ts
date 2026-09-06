@@ -73,6 +73,11 @@ const getRequiredRoll = (source: ToHitSource, armorClass: number) => {
  * @returns 
  */
 export const resolveAttack = (attacker: Combatant, defender: Combatant, roll: number) => {
+  if (defender.armorClass > 10) {
+    defender.armorClass = 10;
+  } else if (defender.armorClass < -10) {
+    defender.armorClass = -10;
+  }
   const needed = getRequiredRoll(attacker.toHitSource, defender.armorClass);
   return {
     hit: roll >= needed,
