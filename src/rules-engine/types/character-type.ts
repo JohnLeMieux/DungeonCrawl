@@ -6,7 +6,7 @@ import { Item } from "./item";
 import { Language } from "./language";
 import { Race } from "./race";
 import { Spell } from "./spell";
-import { WeaponType } from "./weapon";
+import { EquippedWeapon } from "./weapon";
 
 export interface CharacterType {
   name: string;
@@ -34,5 +34,5 @@ export interface CharacterType {
   equippedArmor?: Maybe<EquippedArmor>;
   equippedShield?: Maybe<EquippedShield>;
   equippedHelmet?: Maybe<EquippedHelmet>;
-  equippedWeapon?: Maybe<WeaponType>;
+  equippedWeapon?: Maybe<EquippedWeapon>;
 };

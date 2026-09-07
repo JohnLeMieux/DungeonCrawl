@@ -104,7 +104,7 @@ interface MissileWeapon extends WeaponWithDamage {
   category: "missile";
 };
 
-interface Unarmed extends WeaponWithArmorClassAdjustment {
+export interface Unarmed extends WeaponWithArmorClassAdjustment {
   category: "unarmed";
 };
 
@@ -114,20 +114,26 @@ interface Armed extends WeaponWithArmorClassAdjustment {
   disarmVsAc8?: boolean;
 };
 
-type MeleeWeapon = WeaponWithDamage & Armed & {
+export type MeleeWeapon = WeaponWithDamage & Armed & {
   category: "melee";
 };
 
-type RangedWeapon = WeaponWithRange & {
+export type RangedWeapon = WeaponWithRange & {
   category: "ranged";
 };
 
-type RangedMissleWeapon = WeaponWithDamage & WeaponWithRange & {
+export type RangedMissleWeapon = WeaponWithDamage & WeaponWithRange & {
   category: "ranged-missile";
 };
 
-type RangedMeleeWeapon = WeaponWithDamage & Armed & WeaponWithRange & {
+export type RangedMeleeWeapon = WeaponWithDamage & Armed & WeaponWithRange & {
   category: "ranged-melee";
 };
 
 export type WeaponDefinition = MissileWeapon | Unarmed | MeleeWeapon | RangedWeapon | RangedMissleWeapon | RangedMeleeWeapon;
+
+export interface EquippedWeapon {
+  type: WeaponType;
+  magicBonus?: number;
+  isSet?: boolean;
+};
