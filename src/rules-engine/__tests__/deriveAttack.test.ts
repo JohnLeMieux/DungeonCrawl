@@ -1,4 +1,4 @@
-import { deriveAttack } from "../character";
+import { deriveAttack } from "../combat";
 import { CharacterType, Class, Race, WeaponType } from "../types";
 
 describe("driveAttack()", () => {

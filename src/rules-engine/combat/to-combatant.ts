@@ -21,6 +21,12 @@ export interface Combatant {
   armorClass: number;
 };
 
+/**
+ * Adapts a character or monster entity into a combatant.
+ * 
+ * @param entity 
+ * @returns Combatant
+ */
  export const toCombatant = (entity: CharacterType | MonsterType): Combatant => {
   if ("level" in entity) {
     const ac = deriveArmorClass(entity);
@@ -56,5 +62,3 @@ export interface Combatant {
    /* istanbul ignore next */
    throw new Error(`Unsupported argument type ${JSON.stringify(entity)}`);
 };
-
-
