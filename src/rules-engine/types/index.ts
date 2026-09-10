@@ -1,9 +1,10 @@
 export { Alignment } from './alignment';
 export { ArmorType } from './armor-type';
 export { ArmorDefinition } from './armor';
-export { Attack } from './attack';
+export { CharacterAttack } from './attack';
 export { CharacterType } from './character-type';
 export { Class } from './class';
+export { DieRoll } from './die-roll';
 export { Item } from './item';
 export { Language } from './language';
 export { Race } from './race';

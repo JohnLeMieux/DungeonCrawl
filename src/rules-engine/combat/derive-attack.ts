@@ -1,24 +1,15 @@
 import { weaponTable } from "../tables";
-import { Attack, CharacterType, WeaponType } from "../types";
+import { CharacterAttack, CharacterType, WeaponType } from "../types";
 
-/**
- * What attack is this character capable of making with the thing they're wielding?
- * 
- * @param character 
- * @returns Attack
- */
-export const deriveAttack = (character: CharacterType): Attack  => {
-  const { equippedWeapon } = character;
-  const {
-    type: weapon = WeaponType.FIST,
-    magicBonus = 0,
-    isSet = false
-  } = equippedWeapon ?? {};
-  const { category } = weaponTable[weapon];
+export const deriveCharacterAttack = (character: CharacterType): CharacterAttack => {
+  const { equippedWeapon, strength, wisdom, dexterity } = character;
+  const weaponType = equippedWeapon?.type ?? WeaponType.FIST;
+  const weapon = weaponTable[weaponType];
   return {
+    equippedWeapon,
     weapon,
-    category,
-    magicBonus,
-    isSet
-  };
+    strength,
+    wisdom,
+    dexterity
+  }
 };

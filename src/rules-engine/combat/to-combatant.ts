@@ -1,7 +1,7 @@
 
 import { deriveArmorClass } from "../character/derive-armor-class";
-import { HitDice, MonsterType } from "../monster/monster-type";
-import { CharacterType, Class, Race } from "../types";
+import { MonsterType } from "../monster/monster-type";
+import { CharacterType, Class, DieRoll, Race } from "../types";
 
 export type ToHitSource = {
   type: "character";
@@ -9,7 +9,7 @@ export type ToHitSource = {
   level: number;
 } | {
   type: "monster";
-  hitDice: HitDice;
+  hitDice: DieRoll;
   special?: string;
 } | {
   type: "zero-level",

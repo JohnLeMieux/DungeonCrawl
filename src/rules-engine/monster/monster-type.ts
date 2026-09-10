@@ -1,25 +1,29 @@
-import { Class } from "../types";
-
-export interface HitDice {
-  dice: number;
-  sides: number;
-  bonus?: number;
-};
+import { Class, DieRoll, EquippedWeapon } from "../types";
+import { Maybe } from "../utils/core/maybe";
 
 export interface MonsterType {
   name: string;
-  hitPoints: number;
-  specialToHit?: string;
+  frequency: 4 | 11 | 20 | 65;
+  numberAppearing: DieRoll;
   armorClass: number;
-  hitDice: HitDice;
-  experience: number;
-  numberOfAttacks: number;
-  damage: string | {
-    dice: number;
-    sides: number;
-  };
   movement: number;
-  save: Class[];
-  morale?: number;
+  hitDice: DieRoll;
+  hitPoints: number;
+  percentInLair: number;
+  treasureType: Maybe<string>;
+  numberOfAttacks: number;
+  damage: DieRoll;
+  save: {
+    class: Class;
+    level: number;
+  };
+  morale: number;
+  specialAttack: Maybe<string>;
+  specialDefense: Maybe<string>;
+  magicResistance: number;
+  intelligence: number;
+  alignment: "LG" | "NG" | "CG" | "LN" | "N" | "CN" | "LE" | "NE" | "CE";
   size: "S" | "M" | "L";
+  psyonics: Maybe<string>;
+  equippedWeapon: Maybe<EquippedWeapon>;
 }
