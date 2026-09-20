@@ -1,7 +1,8 @@
-import { deriveAttack } from "../combat";
+import { deriveCharacterAttack } from "../combat";
+import { weaponTable } from "../tables";
 import { CharacterType, Class, Race, WeaponType } from "../types";
 
-describe("driveAttack()", () => {
+describe("deriveCharacterAttack()", () => {
   const character: CharacterType = {
     name: "Test Character",
     sex: "male",
@@ -25,19 +26,21 @@ describe("driveAttack()", () => {
   };
 
   it("should correctly identify a weapon", () => {
-    const attack = deriveAttack(character);
-    expect(attack.weapon).toEqual(WeaponType.LONGSWORD);
-    expect(attack.category).toEqual("melee");
-    expect(attack.magicBonus).toEqual(2);
-    expect(attack.isSet).toEqual(false);
+    const attack = deriveCharacterAttack(character);
+    expect(attack.weapon).toEqual(weaponTable[WeaponType.LONGSWORD]);
+    expect(attack.strength).toEqual(9);
+    expect(attack.wisdom).toEqual(9);
+    expect(attack.dexterity).toEqual(9);
+    expect(attack.equippedWeapon?.magicBonus).toEqual(2);
   });
 
   it("should correctly identify an unarmed attack", () => {
     character.equippedWeapon = undefined;
-    const attack = deriveAttack(character);
-    expect(attack.weapon).toEqual(WeaponType.FIST);
-    expect(attack.category).toEqual("unarmed");
-    expect(attack.magicBonus).toEqual(0);
-    expect(attack.isSet).toEqual(false);
+    const attack = deriveCharacterAttack(character);
+    expect(attack.weapon).toEqual(weaponTable[WeaponType.FIST]);
+    expect(attack.strength).toEqual(9);
+    expect(attack.wisdom).toEqual(9);
+    expect(attack.dexterity).toEqual(9);
+    expect(attack.equippedWeapon).toBeUndefined();
   });
 });
